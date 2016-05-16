@@ -18,28 +18,68 @@
     </style>
 	</head>
 	<body>
-		<section class="intro">
+		<section class="page intro">
 			<aside>
-        <span class="logo">LINGVO<em> TV </em></span>
+        <a href="/" class="logo">LINGVO<em> TV </em></a>
         <div class="vp">
   				<h1>Learn languages</h1>
           <h2>while watching movies on Netflix.</h2>
-          <a href="//app.lingvo.tv" class="link-button learn-more">Learn More</a>
+          <a href="#university/how" class="link-button learn-more jumper">Learn More</a>
         </div>
 			</aside>
       <div class="actions">
         <a class="link-button cta install-extension" target="_blank">INSTALL CHROME EXTENSION</a>
         <a href="//app.lingvo.tv" class="link-button cta open-app" target="_blank">OPEN APP</a>
       </div>
+      <a href="#university/how" class="arrow-down"></a>
 		</section>
-		<section class="benefits">
-			test
-		</section>
-
-		<section class="setup">
-			1. Install <a href="https://chrome.google.com/webstore/detail/lingvo/dgeiagkojabjccafojhokcceakmehpbb" target="__blank">chrome extension<a>
-			2. Go to the <a href="//app.lingvo.tv" target="__blank">App</a> in any browser (tested in mobile safary/chrome)
-			3. Open netflix and start watching movie.
+		<section class="page university" id="university">
+      <nav class="university-nav">
+        <a href="#university/how">How</a>
+        <a href="#university/extension">Extension</a>
+        <a href="#university/connect">Connect</a>
+        <a href="#university/language">Language</a>
+      </nav>
+      <div class="scroller">
+        <div class="scroll-container">
+          <section class="university-content how">
+            <span class="image subtitles-expanded"></span>
+            <p class="descr">
+              Lingvo.tv app receives subtitles from a Netflix movie while you watch it.
+              <br /><br />
+              It allows you to click on any word or words combination to translate it.
+            </p>
+          </section>
+          <section class="university-content extension">
+            <a class="link-button cta install-extension" target="_blank">INSTALL CHROME EXTENSION</a>
+            <p class="descr">
+              Extension allows you to receive the subtitles in your app.
+              <br /><br />
+              Currently only Chrome browser is supported.
+            </p>
+          </section>
+          <section class="university-content connect">
+            <span class="image auth"></span>
+            <p class="descr">
+              Connect Lingvo.tv App and Extension together.
+              <br /><br />
+              Click on Extension, it will display verification code.
+              <br /><br />
+              Enter this number in the App.
+              <br /><br />
+              Now you will receive subtitles once you play the movie.
+            </p>
+          </section>
+          <section class="university-content language">
+            <span class="image settings"></span>
+            <p class="descr">
+              Select your source end destination language.
+              <br /><br />
+              Subtitles is the source.
+            </p>
+          </section>
+        </div>
+      </div>
 		</section>
 
     <script>
@@ -77,6 +117,7 @@
       ga('create', 'UA-77430744-1', 'auto');
       ga('send', 'pageview');
     </script>
+    <script src="/lib/smoothscroll.js"></script>
 	</body>
 </html>
 

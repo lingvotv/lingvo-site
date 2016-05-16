@@ -1,0 +1,6 @@
+{
+  "lingvo-site": "0.1.0",
+  "dependencies": {
+    "smoothscroll": "^0.2.2"
+  }
+}

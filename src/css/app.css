@@ -10,6 +10,10 @@ body {
   font-size: 3em;
   line-height: 1;
   font-weight: 300;
+  text-decoration: none;
+}
+.logo:visited {
+  color: #1BA2F9;
 }
 .logo em {
   font-size: 0.25em;
@@ -25,7 +29,7 @@ body {
   text-align: center;
 }
 
-/* Button */
+/* Buttons */
 .link-button {
   position: relative;
   border: 1px solid #fff;
@@ -35,6 +39,7 @@ body {
   text-decoration: none;
   border-radius: 3px;
   padding: 10px 20px;
+  white-space: nowrap;
 }
 .link-button:visited {
   color: #fff;
@@ -56,9 +61,10 @@ body {
   color: #D6D6D6;
 }
 
-/* Section */
-section {
-  background: #f3f3f3;
+/* Page */
+.page {
+  height: 97vh;
+  color: #fff;
 }
 
 /* Intro */
@@ -66,7 +72,6 @@ section {
   background: url(../img/netflix-back.jpg) no-repeat;
   background-position: left top;
   background-size: cover;
-  height: 100vh;
 }
 
 .intro .logo {
@@ -124,7 +129,100 @@ section {
   color: #fff;
 }
 
-/* Benefits */
-.benefits {
-  height: 500px;
+.intro .arrow-down {
+  position: absolute;
+  background: url(../img/arrows.svg) no-repeat;
+  width: 4em;
+  height: 4em;
+  bottom: 3em;
+  border: 0;
+  outline: 0;
+  left: 50%;
+  margin-left: -2em;
+}
+
+/* University nav */
+.university-nav {
+  border-bottom: 2px solid #3a3a3a;
+  display: flex;
+  justify-content: center;
+}
+.university-nav a {
+  display: inline-block;
+  color: #777;
+  font-size: 1.6em;
+  padding: 1.6em 1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-right: 1px solid #3a3a3a;
+}
+.university-nav a:last-child {
+  border: 0;
+}
+.university-nav a:hover,
+.university-nav .selected {
+  color: #fff;
+}
+
+/* University content */
+.university-content {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+.university-content .descr {
+  max-width: 30%;
+  align-self: center;
+  font-size: 1.2em;
+  line-height: 1.5;
+}
+.university-content .image {
+  display: inline-block;
+  width: 200px;
+  height: 355px;
+  background-repeat: no-repeat;
+  margin-right: 2em;
+  align-self: center;
+  background-size: contain;
+}
+.university-content .install-extension {
+  margin-right: 2em;
+  align-self: center;
+}
+.university-content .subtitles-expanded {
+  background-image: url('../img/subtitles-expanded.png');
+}
+.university-content .auth {
+  background-image: url('../img/auth.png');
+}
+.university-content .settings {
+  background-image: url('../img/settings.png');
+}
+
+/* University */
+.university {
+  position: relative;
+  background: #141414;
+  display: flex;
+  flex-flow: column;
+}
+.university .university-nav {
+  flex-shrink: 0;
+}
+.university .scroller {
+  overflow-y: hidden;
+  overflow-x: scroll;
+  flex-grow: 1;
+  position: relative;
+}
+.university .scroll-container {
+  position: absolute;
+  width: 400vw;
+  height: 100%;
+  overflow: hidden;
+}
+
+.university .university-content {
+  float: left;
+  width: 100vw;
 }
