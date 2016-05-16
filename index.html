@@ -1,41 +1,64 @@
 <!DOCTYPE html>
-<html class="no-js">
-  <head>
-    <title>Lingvo</title>
-    <meta charset="utf-8">
-    <meta name="description" content="Lingvo.tv">
+<html>
+	<head>
+		<title>Lingvo.tv</title>
+		<meta charset="utf-8"/>
+		<meta name="description" content="Lingvo.tv"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui"/>
+    <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/dgeiagkojabjccafojhokcceakmehpbb"/>
+	</head>
+	<body>
+		<section class="intro">
+			<aside>
+        <span class="logo">LINGVO<em> TV </em></span>
+        <div class="vp">
+  				<h1>Learn languages</h1>
+          <h2>while watching movies on Netflix.</h2>
+          <a href="//app.lingvo.tv" class="link-button learn-more">Learn More</a>
+        </div>
+			</aside>
+      <div class="actions">
+        <a class="link-button cta install-extension" target="_blank">INSTALL CHROME EXTENSION</a>
+        <a href="//app.lingvo.tv" class="link-button cta open-app" target="_blank">OPEN APP</a>
+      </div>
+		</section>
+		<section class="benefits">
+			test
+		</section>
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="320">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-    <meta http-equiv="cleartype" content="on">
+		<section class="setup">
+			1. Install <a href="https://chrome.google.com/webstore/detail/lingvo/dgeiagkojabjccafojhokcceakmehpbb" target="__blank">chrome extension<a>
+			2. Go to the <a href="//app.lingvo.tv" target="__blank">App</a> in any browser (tested in mobile safary/chrome)
+			3. Open netflix and start watching movie.
+		</section>
 
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="src/img/touch/apple-touch-icon.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="src/img/touch/apple-touch-icon.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="src/img/touch/apple-touch-icon.png">
-    <link rel="apple-touch-icon-precomposed" href="src/img/touch/apple-touch-icon.png">
-    <link rel="shortcut icon" sizes="196x196" href="src/img/touch/apple-touch-icon.png">
-    <link rel="shortcut icon" href="src/img/touch/apple-touch-icon.png">
-
-    <!-- Tile icon for Win8 (144x144 + tile color) -->
-    <meta name="msapplication-TileImage" content="src/img/touch/apple-touch-icon.png">
-    <meta name="msapplication-TileColor" content="#222222">
-
-    <!-- SEO: If mobile URL is different from desktop URL, add a canonical link to the desktop page -->
-    <!--
-    <link rel="canonical" href="http://www.example.com/" >
-    -->
-
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-
-    <!-- For iOS web apps. Delete if not needed. https://github.com/h5bp/mobile-boilerplate/issues/94 -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="">
-  </head>
-  <body>
     <script>
+      (function() {
+        // Avoid caching without owning headers and without a build step.
+        function insert(name, url) {
+          var node = document.createElement(name)
+          // Never cache for now, as it is a prototype.
+          url += '?' + Math.random()
+          if (name === 'script') {
+            node.src = url
+          } else {
+            node.rel = 'stylesheet'
+            node.href = url
+          }
+          document.head.appendChild(node)
+        }
+
+        ;[
+          './src/css/normalize.css',
+          './src/css/main.css',
+          './src/css/app.css'
+        ].forEach(insert.bind(null, 'link'))
+        ;[
+          './src/js/app.js'
+        ].forEach(insert.bind(null, 'script'))
+      }())
+
+
       ;(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -44,11 +67,6 @@
       ga('create', 'UA-77430744-1', 'auto');
       ga('send', 'pageview');
     </script>
-    <pre>
-    1. Install <a href="https://chrome.google.com/webstore/detail/lingvo/dgeiagkojabjccafojhokcceakmehpbb" target="__blank">chrome extension<a>
-    2. Go to the <a href="//app.lingvo.tv" target="__blank">App</a> in any browser (tested in mobile safary/chrome)
-    3. Open netflix and start watching movie.
-    </pre>
-  </body>
+	</body>
 </html>
 
