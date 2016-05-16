@@ -1,5 +1,5 @@
 body {
-  background: #f3f3f3;
+  background: #000;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
@@ -56,6 +56,11 @@ body {
   color: #D6D6D6;
 }
 
+/* Section */
+section {
+  background: #f3f3f3;
+}
+
 /* Intro */
 .intro {
   background: url(../img/netflix-back.jpg) no-repeat;
@@ -107,7 +112,7 @@ body {
 
 .intro .actions {
   position: absolute;
-  top: 4vh;
+  top: 6vh;
   right: 4%;
   text-align: right;
 }
