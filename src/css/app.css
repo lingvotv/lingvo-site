@@ -226,3 +226,8 @@ body {
   float: left;
   width: 100vw;
 }
+
+/* Footer */
+footer {
+  height: 200px;
+}

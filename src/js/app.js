@@ -12,7 +12,7 @@ function $(selector, context) {
 
 /* Bindings */
 function ExtensionInstallation() {
- function onInstall(e) {
+  function onInstall(e) {
     e.preventDefault()
 
     if (!window.chrome || !window.chrome.webstore) {
@@ -37,34 +37,35 @@ function ExtensionInstallation() {
 }
 
 function UniversityNav() {
-  var items = $('.university-nav a')
+  var navItems = $('.university-nav a')
   var scroller = $('.scroller')[0]
-  var selected
+  var selected = $('.univerity-nav a.selected')[0]
 
-  function select(item, name) {
-    var el = $('.' + name)[0]
+  function select(parts) {
     // Vertical scroll.
-    smoothScroll(el, 500)
+    smoothScroll($(parts[0])[0], 500)
+
     // Horizontal scroll.
-    smoothScroll(el, 500, function() {
-      item.classList.add('selected')
-      if (selected) selected.classList.remove('selected')
-      selected = item
-    }, scroller, 'horizontal')
+    if (parts[1]) {
+      var navItem = navItems.filter(function(item) {
+        return item.href.indexOf(parts[1]) !== -1
+      })[0]
+      var el = $('.' + parts[1])[0]
+      // Horizontal scroll.
+      smoothScroll(el, 500, function() {
+        item.classList.add('selected')
+        if (selected) selected.classList.remove('selected')
+        selected = navItem
+      }, scroller, 'horizontal')
+    }
   }
 
-  function handleHashChange() {
+  function onHashChange() {
     if (!location.hash) return
-    var parts = location.hash.split('/')
-    var name = parts[1]
-    var item = items.filter(function(item) {
-      return item.href.indexOf(name) !== -1
-    })[0]
-    select(item, name)
+    select(location.hash.split('/'))
   }
 
-  window.addEventListener('hashchange', handleHashChange)
-  handleHashChange()
+  window.addEventListener('hashchange', onHashChange)
 }
 
 document.addEventListener('readystatechange', function() {
