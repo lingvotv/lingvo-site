@@ -176,13 +176,18 @@ body {
   font-size: 1.2em;
   line-height: 1.5;
 }
+.university-content .phone-frame {
+  background: url(../img/phone-frame.png) no-repeat;
+  background-size: 100% 100%;
+  margin-right: 2em;
+  padding: 55px 15px;
+  align-self: center;
+}
 .university-content .image {
   display: inline-block;
   width: 200px;
   height: 355px;
   background-repeat: no-repeat;
-  margin-right: 2em;
-  align-self: center;
   background-size: contain;
 }
 .university-content .install-extension {
