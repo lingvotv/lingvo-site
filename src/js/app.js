@@ -12,6 +12,10 @@ function $(selector, context) {
 
 /* Bindings */
 function ExtensionInstallation() {
+  var ignoredErrors = [
+    'User cancelled install'
+  ]
+
   function onInstall(e) {
     e.preventDefault()
 
@@ -20,14 +24,17 @@ function ExtensionInstallation() {
       return
     }
 
+
+
     chrome.webstore.install(
       'https://chrome.google.com/webstore/detail/dgeiagkojabjccafojhokcceakmehpbb',
       function() {
         location.hash = 'university/connect'
       },
-      function(err) {
-        console.log(err)
-        alert(err)
+      function(message) {
+        if (ignoredErrors.indexOf(message) === -1) {
+          alert(err)
+        }
       }
     )
   }
