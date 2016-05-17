@@ -217,6 +217,7 @@ body {
   overflow-x: scroll;
   flex-grow: 1;
   position: relative;
+  margin-bottom: 20px;
 }
 .university .scroll-container {
   position: absolute;
