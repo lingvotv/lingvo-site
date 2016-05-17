@@ -189,6 +189,9 @@ body {
   margin-right: 2em;
   align-self: center;
 }
+.university-content.connect ul {
+  list-style-type: decimal;
+}
 .university-content .subtitles-expanded {
   background-image: url('../img/subtitles-expanded.png');
 }

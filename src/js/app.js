@@ -50,6 +50,7 @@ function UniversityNav() {
       var navItem = navItems.filter(function(item) {
         return item.href.indexOf(parts[1]) !== -1
       })[0]
+      if (navItem === selected) return
       var el = $('.' + parts[1])[0]
       // Horizontal scroll.
       smoothScroll(el, 500, function() {
@@ -66,6 +67,7 @@ function UniversityNav() {
   }
 
   window.addEventListener('hashchange', onHashChange)
+  onHashChange()
 }
 
 document.addEventListener('readystatechange', function() {
