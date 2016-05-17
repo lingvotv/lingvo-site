@@ -39,7 +39,7 @@ function ExtensionInstallation() {
 function UniversityNav() {
   var navItems = $('.university-nav a')
   var scroller = $('.scroller')[0]
-  var selected = $('.univerity-nav a.selected')[0]
+  var selected = $('.university-nav .selected')[0]
 
   function select(parts) {
     // Vertical scroll.
@@ -53,7 +53,7 @@ function UniversityNav() {
       var el = $('.' + parts[1])[0]
       // Horizontal scroll.
       smoothScroll(el, 500, function() {
-        item.classList.add('selected')
+        navItem.classList.add('selected')
         if (selected) selected.classList.remove('selected')
         selected = navItem
       }, scroller, 'horizontal')
