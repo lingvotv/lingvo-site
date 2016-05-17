@@ -26,6 +26,7 @@ function ExtensionInstallation() {
         location.hash = 'university/connect'
       },
       function(err) {
+        console.log(err)
         alert(err)
       }
     )
