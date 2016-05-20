@@ -286,7 +286,20 @@ body {
 
 /* Footer */
 footer {
-  height: 200px;
+  padding: 50px;
+  text-align: center;
+}
+footer a {
+  margin-right: 20px;
+  color: #999;
+  text-decoration: none;
+}
+footer a:visited {
+  color: #999;
+}
+footer a:hover {
+  color: #999;
+  text-decoration: underline;
 }
 
 /* IP 5*/
