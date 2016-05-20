@@ -10,6 +10,16 @@ function $(selector, context) {
   return toArray(document.querySelectorAll(selector, context))
 }
 
+var hasChromeStore = window.chrome && window.chrome.webstore
+
+function BodyClasses() {
+  var classes = ['ready']
+  var hasTouch = 'ontouchstart' in window
+  classes.push(hasTouch ? 'touch' : 'no-touch')
+  if (!hasChromeStore) classes.push('no-chrome-store')
+  document.body.className = classes.join(' ')
+}
+
 /* Bindings */
 function ExtensionInstallation() {
   var ignoredErrors = [
@@ -19,7 +29,7 @@ function ExtensionInstallation() {
   function onInstall(e) {
     e.preventDefault()
 
-    if (!window.chrome || !window.chrome.webstore) {
+    if (!hasChromeStore) {
       alert('Extension can be installed in Desktop Chrome browser only.')
       return
     }
@@ -91,6 +101,7 @@ function UniversityNav() {
 document.addEventListener('readystatechange', function() {
   ExtensionInstallation()
   UniversityNav()
+  BodyClasses()
 })
 
 }())

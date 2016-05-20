@@ -5,12 +5,16 @@ body {
 
 /* Logo */
 .logo {
+  position: absolute;
   display: inline-block;
   color: #1BA2F9;
   font-size: 3em;
   line-height: 1;
   font-weight: 300;
   text-decoration: none;
+  z-index: 1;
+  white-space: nowrap;
+  text-shadow: 1px 1px 4px #000;
 }
 .logo:visited {
   color: #1BA2F9;
@@ -31,6 +35,7 @@ body {
 
 /* Buttons */
 .link-button {
+  display: inline-block;
   position: relative;
   border: 1px solid #fff;
   outline: none;
@@ -38,33 +43,54 @@ body {
   cursor: pointer;
   text-decoration: none;
   border-radius: 3px;
-  padding: 20px 20px;
+  padding: 1.2em;
   white-space: nowrap;
+  -webkit-touch-callout: none;
+  font-size: 1.2em;
 }
-.link-button:visited {
+.link-button:visited,
+.link-button:focus {
   color: #fff;
 }
-.link-button:visited:hover,
-.link-button:hover {
+.no-touch .link-button:visited:hover,
+.no-touch .link-button:hover,
+.link-button:visited:active,
+.link-button:active {
   color: #D6D6D6;
   border-color: #D6D6D6;
 }
 .cta {
+  position: relative;
   border: none;
   background-color: #1BA2F9;
   border-radius: 5px;
-  transition: background-color 150ms;
-  transition-timing: cubic-bezier(0, 0.65, 0.47, 1.04);
 }
-.cta:hover {
-  background-color: #016DB3;
-  color: #D6D6D6;
+.cta:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #000;
+  opacity: 0;
+  border-radius: 5px;
+  transition: opacity 300ms;
+  transition-timing-function: cubic-bezier(0, 0.65, 0.47, 1.04);
+}
+.no-touch .cta:hover:before,
+.cta:active:before {
+  opacity: 0.4;
 }
 
 /* Page */
 .page {
   height: 97vh;
   color: #fff;
+  transition: opacity 1s;
+}
+.ready .page {
+  opacity: 1;
 }
 
 /* Intro */
@@ -75,12 +101,13 @@ body {
 }
 
 .intro .logo {
-  margin-top: 4vh;
+  margin-top: 3vh;
 }
 .intro aside {
   position: relative;
   padding-left: 3%;
   width: 440px;
+  max-width: 70%;
   height: 100%;
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+45,000000+100&0.9+45,1+45,0+100 */
   background: -moz-linear-gradient(left,  rgba(0,0,0,1) 45%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
@@ -107,26 +134,36 @@ body {
 }
 .intro h2 {
   font-size: 1.7em;
-  line-height: 1.2;
+  line-height: 1.5;
   margin: 0;
   color: #fff;
   font-weight: normal;
   text-shadow: 1px 1px 4px #000;
-  margin-bottom: 1.2em;
+  margin-bottom: 1.5em;
 }
 
 .intro .actions {
   position: absolute;
-  top: 4vh;
+  width: 100%;
+  top: 0;
   right: 3%;
-  padding-top: 1.2em;
+  text-align: right;
+}
+.intro .actions a {
+  margin-top: 3vh;
+  z-index: 2;
 }
 .intro .install-extension {
-  margin-right: 10px;
 }
-
+.intro .open-app {
+  margin-left: 10px;
+}
+.no-chrome-store .intro .install-extension {
+  display: none;
+}
 .intro .learn-more {
   color: #fff;
+  padding: 15px 20px;
 }
 
 .intro .arrow-down {
@@ -159,7 +196,7 @@ body {
 .university-nav a:last-child {
   border: 0;
 }
-.university-nav a:hover,
+.no-touch .university-nav a:hover,
 .university-nav .selected {
   color: #fff;
 }
@@ -250,4 +287,38 @@ body {
 /* Footer */
 footer {
   height: 200px;
+}
+
+/* IP 5*/
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 568px) {
+  body {
+    font-size: 12px;
+  }
+}
+/* IP 6*/
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px) {
+  body {
+    font-size: 14px;
+  }
+}
+/* IP 6plus */
+@media only screen
+and (min-device-width : 414px)
+and (max-device-width : 736px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 639px) {
+  .intro .install-extension,
+  .intro .arrow-down,
+  .intro .learn-more,
+  .university {
+    display: none;
+  }
 }
