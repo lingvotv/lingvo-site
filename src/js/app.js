@@ -48,6 +48,7 @@ function UniversityNav() {
   var navItems = $('.university-nav a')
   var scroller = $('.scroller')[0]
   var selected = $('.university-nav .selected')[0]
+  var nextArrows = $('.university .next')
 
   function select(parts) {
     // Vertical scroll.
@@ -58,10 +59,10 @@ function UniversityNav() {
       var navItem = navItems.filter(function(item) {
         return item.href.indexOf(parts[1]) !== -1
       })[0]
-      if (navItem === selected) return
       var el = $('.' + parts[1])[0]
       // Horizontal scroll.
       smoothScroll(el, 500, function() {
+        if (navItem === selected) return
         navItem.classList.add('selected')
         if (selected) selected.classList.remove('selected')
         selected = navItem
@@ -74,7 +75,16 @@ function UniversityNav() {
     select(location.hash.split('/'))
   }
 
+  // Handle click on "next" arrow.
+  nextArrows.forEach(function(arrow) {
+    arrow.addEventListener('click', function() {
+      var index = navItems.indexOf(selected)
+      navItems[index + 1].click()
+    })
+  })
+
   window.addEventListener('hashchange', onHashChange)
+  window.addEventListener('resize', onHashChange)
   onHashChange()
 }
 

@@ -151,7 +151,7 @@ body {
   display: inline-block;
   color: #777;
   font-size: 1.6em;
-  padding: 1.6em 1em;
+  padding: 1.4em 0.8em;
   text-transform: uppercase;
   text-decoration: none;
   border-right: 1px solid #3a3a3a;
@@ -205,6 +205,17 @@ body {
 }
 .university-content .settings {
   background-image: url('../img/settings.png');
+}
+.university-content .next {
+  display: inline-block;
+  width: 3em;
+  height: 3em;
+  margin-left: 3em;
+  align-self: center;
+  background: url(../img/next.svg) no-repeat;
+  background-size: contain;
+  border: 0;
+  outline: 0;
 }
 
 /* University */
