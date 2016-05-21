@@ -109,11 +109,12 @@
     <script>
       (function() {
         // Avoid caching without owning headers and without a build step.
-        function insert(name, url) {
+        function insert(name, noCache, url) {
           var node = document.createElement(name)
           // Never cache for now, as it is a prototype.
-          url += '?' + Math.random()
+          if (noCache) url += '?' + Math.random()
           if (name === 'script') {
+            node.async = true
             node.src = url
           } else {
             node.rel = 'stylesheet'
@@ -126,12 +127,13 @@
           './src/css/normalize.css',
           './src/css/main.css',
           './src/css/app.css'
-        ].forEach(insert.bind(null, 'link'))
+        ].forEach(insert.bind(null, 'link', true))
         ;[
           './src/js/app.js'
-        ].forEach(insert.bind(null, 'script'))
-      }())
+        ].forEach(insert.bind(null, 'script', true))
 
+        insert('script', false, '//api.usersnap.com/load/cd4a8a78-e23e-4bbe-bd5e-3dcc06ae0d9e.js')
+      }())
 
       ;(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -141,15 +143,6 @@
       ga('create', 'UA-77430744-1', 'auto');
       ga('send', 'pageview');
 
-      (function() {
-      var s = document.createElement("script");
-      s.type = "text/javascript";
-      s.async = true;
-      s.src = '//api.usersnap.com/load/'+
-              'cd4a8a78-e23e-4bbe-bd5e-3dcc06ae0d9e.js';
-      var x = document.getElementsByTagName('script')[0];
-      x.parentNode.insertBefore(s, x);
-      })();
     </script>
     <script src="/lib/smoothscroll.js"></script>
   </body>
