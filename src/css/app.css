@@ -286,13 +286,17 @@ body {
 
 /* Footer */
 footer {
-  padding: 50px;
+  padding: 50px 0;
   text-align: center;
+  white-space: nowrap;
 }
 footer a {
-  margin-right: 20px;
+  margin-right: 10px;
   color: #999;
   text-decoration: none;
+}
+footer a:last-child {
+  margin: 0;
 }
 footer a:visited {
   color: #999;
