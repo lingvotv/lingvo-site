@@ -165,7 +165,6 @@ body {
   color: #fff;
   padding: 15px 20px;
 }
-
 .intro .arrow-down {
   position: absolute;
   background: url(../img/arrows.svg) no-repeat;
@@ -176,6 +175,12 @@ body {
   outline: 0;
   left: 50%;
   margin-left: -2em;
+}
+.intro .mobile-hint {
+  position: absolute;
+  bottom: 3em;
+  margin: 0 3%;
+  display: none;
 }
 
 /* University nav */
@@ -337,5 +342,8 @@ and (max-device-width : 736px) {
   .intro .learn-more,
   .university {
     display: none;
+  }
+  .intro .mobile-hint {
+    display: block;
   }
 }
