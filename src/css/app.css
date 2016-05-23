@@ -178,7 +178,7 @@ body {
 }
 .intro .mobile-hint {
   position: absolute;
-  bottom: 3em;
+  bottom: 4vh;
   margin: 0 3%;
   display: none;
 }
