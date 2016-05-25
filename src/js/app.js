@@ -21,50 +21,6 @@ function BodyClasses() {
 }
 
 /* Bindings */
-function ExtensionInstallation() {
-  var ignoredErrors = [
-    'User cancelled install'
-  ]
-
-  function onInstall(e) {
-    e.preventDefault()
-
-    if (!hasChromeStore) {
-      alert('Extension can be installed in Desktop Chrome browser only.')
-      return
-    }
-
-
-
-    chrome.webstore.install(
-      'https://chrome.google.com/webstore/detail/dgeiagkojabjccafojhokcceakmehpbb',
-      function() {
-        ga('send', {
-          hitType: 'event',
-          eventCategory: 'extension',
-          eventAction: 'installed'
-        })
-        location.hash = 'university/connect'
-      },
-      function(message) {
-        ga('send', {
-          hitType: 'event',
-          eventCategory: 'extension',
-          eventAction: 'aborted'
-        })
-
-        if (ignoredErrors.indexOf(message) === -1) {
-          alert(err)
-        }
-      }
-    )
-  }
-
-  $('.install-extension').forEach(function(el) {
-    el.addEventListener('click', onInstall)
-  })
-}
-
 function UniversityNav() {
   var navItems = $('.university-nav a')
   var scroller = $('.scroller')[0]
@@ -110,7 +66,6 @@ function UniversityNav() {
 }
 
 document.addEventListener('readystatechange', function() {
-  ExtensionInstallation()
   UniversityNav()
   BodyClasses()
 })
