@@ -39,9 +39,22 @@ function ExtensionInstallation() {
     chrome.webstore.install(
       'https://chrome.google.com/webstore/detail/dgeiagkojabjccafojhokcceakmehpbb',
       function() {
+        ga('send', {
+          hitType: 'event',
+          eventCategory: 'extension',
+          eventAction: 'install',
+          eventLabel: 'ok'
+        })
         location.hash = 'university/connect'
       },
       function(message) {
+        ga('send', {
+          hitType: 'event',
+          eventCategory: 'extension',
+          eventAction: 'install',
+          eventLabel: 'nok'
+        })
+
         if (ignoredErrors.indexOf(message) === -1) {
           alert(err)
         }
