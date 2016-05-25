@@ -158,9 +158,6 @@ body {
 .intro .open-app {
   margin-left: 10px;
 }
-.no-chrome-store .intro .install-extension {
-  display: none;
-}
 .intro .learn-more {
   color: #fff;
   padding: 15px 20px;
