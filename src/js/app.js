@@ -42,8 +42,7 @@ function ExtensionInstallation() {
         ga('send', {
           hitType: 'event',
           eventCategory: 'extension',
-          eventAction: 'install',
-          eventLabel: 'ok'
+          eventAction: 'installed'
         })
         location.hash = 'university/connect'
       },
@@ -51,8 +50,7 @@ function ExtensionInstallation() {
         ga('send', {
           hitType: 'event',
           eventCategory: 'extension',
-          eventAction: 'install',
-          eventLabel: 'nok'
+          eventAction: 'aborted'
         })
 
         if (ignoredErrors.indexOf(message) === -1) {
