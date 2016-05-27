@@ -10,6 +10,30 @@ function $(selector, context) {
   return toArray(document.querySelectorAll(selector, context))
 }
 
+function isInViewport(el) {
+  var rect = el.getBoundingClientRect()
+
+  var containmentRect = {
+    top: 0,
+    left: 0,
+    bottom: window.innerHeight || document.documentElement.clientHeight,
+    right: window.innerWidth || document.documentElement.clientWidth
+  }
+
+  var visibilityRect = {
+    top: rect.top >= containmentRect.top,
+    left: rect.left >= containmentRect.left,
+    bottom: rect.bottom <= containmentRect.bottom,
+    right: rect.right <= containmentRect.right
+  }
+
+  var partialVertical =
+    (rect.top >= containmentRect.top && rect.top <= containmentRect.bottom) ||
+    (rect.bottom >= containmentRect.top && rect.bottom <= containmentRect.bottom)
+
+  return partialVertical
+}
+
 var hasChromeStore = window.chrome && window.chrome.webstore
 
 function BodyClasses() {
@@ -47,7 +71,7 @@ function UniversityNav() {
     }
   }
 
-  function onHashChange() {
+  function checkLocation() {
     if (!location.hash) return
     select(location.hash.split('/'))
   }
@@ -60,9 +84,16 @@ function UniversityNav() {
     })
   })
 
-  window.addEventListener('hashchange', onHashChange)
-  window.addEventListener('resize', onHashChange)
-  onHashChange()
+  ;['resize', 'scroll', 'hashchange'].forEach(function(event) {
+    window.addEventListener(event, function() {
+      checkLocation()
+      if (isInViewport(scroller)) {
+        scroller.classList.add('is-in-viewport')
+      }
+    })
+  })
+
+  checkLocation()
 }
 
 document.addEventListener('readystatechange', function() {
