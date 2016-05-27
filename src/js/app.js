@@ -68,6 +68,7 @@ function UniversityNav() {
 document.addEventListener('readystatechange', function() {
   UniversityNav()
   BodyClasses()
+  SocialShareKit.init()
 })
 
 }())

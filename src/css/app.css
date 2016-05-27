@@ -344,3 +344,10 @@ and (max-device-width : 736px) {
     display: block;
   }
 }
+
+.ssk, .ssk:visited {
+  color: #fff;
+}
+.ssk-sticky {
+  display: block;
+}

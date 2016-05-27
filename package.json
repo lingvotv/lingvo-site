@@ -1,7 +1,8 @@
 {
   "lingvo-site": "0.1.0",
   "dependencies": {
-    "smoothscroll": "^0.2.2"
+    "smoothscroll": "^0.2.2",
+    "social-share-kit": "^1.0.8"
   },
   "scripts": {
     "start": "npm run static & npm run tunnel:site",
