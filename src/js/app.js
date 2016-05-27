@@ -73,6 +73,7 @@ function UniversityNav() {
 
   function checkLocation() {
     if (!location.hash) return
+      console.log('check')
     select(location.hash.split('/'))
   }
 
@@ -84,9 +85,13 @@ function UniversityNav() {
     })
   })
 
-  ;['resize', 'scroll', 'hashchange'].forEach(function(event) {
+
+  ;['resize', 'hashchange', 'scroll'].forEach(function(event) {
     window.addEventListener(event, function() {
-      checkLocation()
+      // Don't scroll on scroll!
+      if (event !== 'scroll') {
+        checkLocation()
+      }
       if (isInViewport(scroller)) {
         scroller.classList.add('is-in-viewport')
       }
