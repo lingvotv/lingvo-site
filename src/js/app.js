@@ -20,13 +20,6 @@ function isInViewport(el) {
     right: window.innerWidth || document.documentElement.clientWidth
   }
 
-  var visibilityRect = {
-    top: rect.top >= containmentRect.top,
-    left: rect.left >= containmentRect.left,
-    bottom: rect.bottom <= containmentRect.bottom,
-    right: rect.right <= containmentRect.right
-  }
-
   var partialVertical =
     (rect.top >= containmentRect.top && rect.top <= containmentRect.bottom) ||
     (rect.bottom >= containmentRect.top && rect.bottom <= containmentRect.bottom)
@@ -89,7 +82,6 @@ function UniversityNav() {
       navItems[index + 1].click()
     })
   })
-
 
   ;['resize', 'hashchange', 'scroll'].forEach(function(event) {
     window.addEventListener(event, function() {

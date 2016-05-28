@@ -273,10 +273,10 @@ body {
   flex-grow: 1;
   position: relative;
   margin-bottom: 20px;
-  display: none;
+  visibility: hidden;
 }
 .university .scroller.is-in-viewport {
-  display: block;
+  visibility: visible;
 }
 .university .scroll-container {
   position: absolute;
