@@ -246,7 +246,6 @@ body {
   background-image: url('../img/settings.png');
 }
 .university-content .next {
-  display: inline-block;
   width: 3em;
   height: 3em;
   margin-left: 3em;
