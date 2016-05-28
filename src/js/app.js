@@ -43,6 +43,7 @@ function UniversityNav() {
   var scroller = $('.scroller')[0]
   var selected = $('.university-nav .selected')[0]
   var nextArrows = $('.university .next')
+  var university = $('.university')[0]
 
   function select(parts) {
     // Vertical scroll.
@@ -71,7 +72,7 @@ function UniversityNav() {
 
   function checkViewport() {
     if (isInViewport(scroller)) {
-      scroller.classList.add('is-in-viewport')
+      university.classList.add('is-in-viewport')
     }
   }
 

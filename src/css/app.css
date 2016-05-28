@@ -273,10 +273,6 @@ body {
   flex-grow: 1;
   position: relative;
   margin-bottom: 20px;
-  visibility: hidden;
-}
-.university .scroller.is-in-viewport {
-  visibility: visible;
 }
 .university .scroll-container {
   position: absolute;
@@ -284,11 +280,17 @@ body {
   height: 100%;
   overflow: hidden;
 }
-
 .university .university-content {
   float: left;
   width: 100vw;
 }
+.university .lazy {
+  display: none;
+}
+.university.is-in-viewport .lazy {
+  display: block;
+}
+
 
 /* Footer */
 footer {
