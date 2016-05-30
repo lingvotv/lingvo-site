@@ -106,7 +106,7 @@ body {
 .intro aside {
   position: relative;
   padding-left: 3%;
-  width: 440px;
+  width: 400px;
   max-width: 70%;
   height: 100%;
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+45,000000+100&0.9+45,1+45,0+100 */
@@ -180,11 +180,38 @@ body {
   display: none;
 }
 
+/* Supported services */
+.supported-services {
+  background: #1a1a1a;
+  color: #fff;
+  text-align: center;
+  padding: 60px 0;
+}
+.supported-services h1 {
+  margin-bottom: 40px;
+}
+.supported-services .image {
+  display: inline-block;
+  height: 100px;
+  background: no-repeat center;
+  background-size: contain;
+}
+.supported-services .netflix {
+  background-image: url(../img/netflix-logo.png);
+  margin-right: 40px;
+  width: 150px;
+}
+.supported-services .amazon {
+  background-image: url(../img/amazon-instant-video-logo.png);
+  width: 200px;
+}
+
 /* University nav */
 .university-nav {
   border-bottom: 2px solid #3a3a3a;
   display: flex;
   justify-content: center;
+  background: #141414;
 }
 .university-nav a {
   display: inline-block;
@@ -259,7 +286,7 @@ body {
 /* University */
 .university {
   position: relative;
-  background: #141414;
+  background: #1a1a1a;
   display: flex;
   flex-flow: column;
 }
