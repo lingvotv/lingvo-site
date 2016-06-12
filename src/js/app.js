@@ -101,9 +101,10 @@ function UniversityNav() {
 
 function Contact() {
   var el = $('.contact')[0]
-  el.onmousedown = el.ontouchstart = function() {
-    this.href = 'mailto:lingvotvapp@gmail.com'
-  }
+  $('.contact')[0].addEventListener('click', function(e) {
+    e.preventDefault()
+    location.href = 'mailto:lingvotvapp@gmail.com'
+  })
 }
 
 document.addEventListener('readystatechange', function() {
