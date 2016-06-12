@@ -100,7 +100,8 @@ function UniversityNav() {
 }
 
 function Contact() {
-  $('.contact')[0].onclick = function() {
+  var el = $('.contact')[0]
+  el.onmousedown = el.ontouchstart = function() {
     this.href = 'mailto:lingvotvapp@gmail.com'
   }
 }
