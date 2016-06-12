@@ -99,6 +99,12 @@ function UniversityNav() {
   checkViewport()
 }
 
+function Contact() {
+  $('.contact')[0].onclick = function() {
+    this.href = 'mailto:lingvotvapp@gmail.com'
+  }
+}
+
 document.addEventListener('readystatechange', function() {
   UniversityNav()
   BodyClasses()
