@@ -108,6 +108,7 @@ function Contact() {
 document.addEventListener('readystatechange', function() {
   UniversityNav()
   BodyClasses()
+  Contact()
   SocialShareKit.init()
 })
 
