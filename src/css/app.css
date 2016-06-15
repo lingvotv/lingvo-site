@@ -203,7 +203,12 @@ body {
 }
 .supported-services .amazon {
   background-image: url(../img/amazon-instant-video-logo.png);
+  margin-right: 40px;
   width: 200px;
+}
+.supported-services .youtube {
+  background-image: url(../img/youtube-logo.png);
+  width: 180px;
 }
 
 /* University nav */
