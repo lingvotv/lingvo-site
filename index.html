@@ -36,81 +36,113 @@
           <div class="vp">
             <h1>Learn languages</h1>
             <h2>while watching movies online, on the go.</h2>
-            <a href="#university" class="link-button learn-more jumper">Learn More</a>
+            <a href="#supported-services" class="link-button learn-more">Learn More</a>
           </div>
       </aside>
       <div class="actions">
         <a class="link-button cta install-extension" href="https://chrome.google.com/webstore/detail/dgeiagkojabjccafojhokcceakmehpbb" target="_blank">INSTALL CHROME EXTENSION</a>
         <a href="//app.lingvo.tv" class="link-button cta open-app" target="_blank">OPEN APP</a>
       </div>
-      <a href="#university" class="arrow-down"></a>
+      <a href="#supported-services" class="arrow-down"></a>
       <p class="mobile-hint">*open this site on Desktop Chrome to install the Extension and to learn more…</p>
     </section>
-    <section class="supported-services">
-      <h1>Supported Services</h1>
+    <section class="supported-services" id="supported-services">
       <a href="https://www.netflix.com" class="image netflix" target="_blank"></a>
       <a href="https://www.amazon.com/primevideo" class="image amazon" target="_blank"></a>
       <a href="https://www.youtube.com/" class="image youtube" target="_blank"></a>
     </section>
-    <section class="page university" id="university">
-      <nav class="university-nav">
-        <a href=" #university/how" class="selected">How</a>
-        <a href=" #university/extension">Extension</a>
-        <a href=" #university/connect">Connect</a>
-        <a href=" #university/language">Language</a>
-      </nav>
+    <section class="university university-how" id="university-how">
+      <h1>How this works</h1>
       <div class="scroller">
         <div class="scroll-container">
-          <section class="university-content how">
-            <span class="phone-frame lazy">
-              <span class="image subtitles-expanded"></span>
-            </span>
-            <p class="descr">
-              Sound and subtitles in the movie should be <b>both</b> in the language you want to learn.
+          <section class="university-content language">
+            <span class="illustration computer illustration-left"></span>
+            <div class="descr">
+              <div class="illustration-top">
+                <span class="illustration computer"></span>
+              </div>
+              Watch a movie with sound and subtitles <b>both</b> in the language you aim to learn.
               <br /><br />
-              Lingvo TV app on your phone receives subtitles from the movie while you watch it
-              <br /><br />
-              and allows you to click on any word or words combination to translate them, without stopping the movie!
-            </p>
-            <button class="next lazy"></button>
+              It makes understanding easier and activates your <b>visual</b> memory!
+            </div>
+            <button class="next-button lazy"></button>
           </section>
+          <section class="university-content app">
+            <span class="illustration translation illustration-left"></span>
+            <div class="descr">
+              <div class="illustration-top">
+                <span class="illustration translation"></span>
+              </div>
+              LingvoTV App on your phone receives subtitles from the movie while you watch it.
+              <br /><br />
+              Click on any word or words combination to translate them without stopping the movie!
+            </div>
+            <button class="next-button lazy"></button>
+          </section>
+          <section class="university-content translate">
+            <span class="illustration laughing illustration-left"></span>
+            <div class="descr">
+              <div class="illustration-top">
+                <span class="illustration laughing"></span>
+              </div>
+              The most important thing is to <b>have fun</b>!
+              <br /><br />
+              Don't worry if you can't translate every word!
+            </div>
+          </section>
+        </div>
+      </div>
+      <nav class="scroller-nav">
+        <a href=" #university-how/language" class="selected">Language</a>
+        <a href=" #university-how/app">App</a>
+        <a href=" #university-how/translate">Translate</a>
+      </nav>
+    </section>
+    <section class="university university-installation" id="university-installation">
+      <h1>Installation</h1>
+      <div class="scroller">
+        <div class="scroll-container">
           <section class="university-content extension">
-            <a class="link-button cta install-extension" href="https://chrome.google.com/webstore/detail/dgeiagkojabjccafojhokcceakmehpbb" target="_blank">INSTALL CHROME EXTENSION</a>
             <p class="descr">
-              Extension allows you to receive the subtitles on your phone.
+              Install LingvoTV Chrome Extension.
               <br /><br />
-              Watch movie in the same browser where you install the extension.
-              <br /><br />
-              Currently only Chrome browser is supported.
+              It is required to send the subtitles to your phone.
             </p>
-            <button class="next lazy"></button>
+            <button class="next-button lazy"></button>
           </section>
           <section class="university-content connect">
-            <span class="phone-frame lazy">
-              <span class="image auth"></span>
-            </span>
-            <div class="descr">
-              Connect Lingvo TV App and the Browser.
-              <ul>
-                <li>Open <b>www.lingvo.tv</b> on your phone and OPEN APP.</li>
-                <li>Open Desktop Chrome Browser and click on Lingvo TV Extension.</li>
-                <li>Enter the code displayed in Extension into the app.</li>
-              </ul>
-              Done, now you will receive subtitles once you play the movie.
-            </div>
-            <button class="next lazy"></button>
-          </section>
-          <section class="university-content language">
-            <span class="phone-frame lazy">
-              <span class="image settings"></span>
-            </span>
             <p class="descr">
-              Select your source and destination language.
+              Connect LingvoTV app on your phone and your Chrome Extension.
+              <br /><br />
+              Click on Extension to show the code. Enter this code in the app.
+            </p>
+            <button class="next-button lazy"></button>
+          </section>
+          <section class="university-content setup-movie">
+            <p class="descr">
+              Open a movie in Chrome using one of the supported services.
+              <br /><br />
+              Select sound and subtitles both in the language you want to learn.
+            </p>
+            <button class="next-button lazy"></button>
+          </section>
+          <section class="university-content play">
+            <p class="descr">
+              Start playing movie. Once you see subtitles on the screen in the movie, you should see the same subtitles on your phone.
+              <br /><br />
+              Now you can click on words to translate them.
             </p>
           </section>
         </div>
       </div>
+      <nav class="scroller-nav">
+        <a href=" #university-installation/extension" class="selected">extension</a>
+        <a href=" #university-installation/connect">connect</a>
+        <a href=" #university-installation/setup-movie">setup movie</a>
+        <a href=" #university-installation/play">play</a>
+      </nav>
     </section>
+
     <footer>
       <a href="terms.html" target="_blank">Terms of Use</a>
       <a href="" class="contact">Contact</a>

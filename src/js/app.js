@@ -6,8 +6,8 @@ function toArray(obj) {
   return [].slice.call(obj)
 }
 
-function $(selector, context) {
-  return toArray(document.querySelectorAll(selector, context))
+function $(selector, container) {
+  return toArray((container || document).querySelectorAll(selector))
 }
 
 function isInViewport(el) {
@@ -38,16 +38,18 @@ function BodyClasses() {
 }
 
 /* Bindings */
-function UniversityNav() {
-  var navItems = $('.university-nav a')
-  var scroller = $('.scroller')[0]
-  var selected = $('.university-nav .selected')[0]
-  var nextArrows = $('.university .next')
-  var university = $('.university')[0]
+function ScrollerNav(options) {
+  var scroller = $('.scroller', options.container)[0]
+  var navItems = $('.scroller-nav a', options.container)
+  var selected = $('.scroller-nav .selected', options.container)[0]
+  var nextArrows = $('.next-button', scroller)
 
   function select(parts) {
+    var target = $(parts[0])[0]
+    if (target !== options.container) return
+
     // Vertical scroll.
-    smoothScroll($(parts[0])[0], 500)
+    smoothScroll(target, 500)
 
     // Horizontal scroll.
     if (parts[1]) {
@@ -72,7 +74,7 @@ function UniversityNav() {
 
   function checkViewport() {
     if (isInViewport(scroller)) {
-      university.classList.add('is-in-viewport')
+      scroller.classList.add('is-in-viewport')
     }
   }
 
@@ -108,7 +110,8 @@ function Contact() {
 }
 
 document.addEventListener('readystatechange', function() {
-  UniversityNav()
+  ScrollerNav({container: $('.university-how')[0]})
+  ScrollerNav({container: $('.university-installation')[0]})
   BodyClasses()
   Contact()
   SocialShareKit.init()
