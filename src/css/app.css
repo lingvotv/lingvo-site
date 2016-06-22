@@ -306,6 +306,7 @@ body {
   display: flex;
   flex-flow: column;
   color: #fff;
+  padding: 60px 0;
 }
 .university > h1 {
   text-align: center;
