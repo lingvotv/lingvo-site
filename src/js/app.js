@@ -215,6 +215,7 @@ function ScrollerNav(options) {
       }
 
       function onScrollStop() {
+        isScrolling = false
         setSelected()
         if (callback) callback()
       }
@@ -262,7 +263,7 @@ function Contact() {
   })
 }
 
-function Actions() {
+function ActionsMenu() {
   var el = $('.actions')[0]
   var isMinified = false
   var threshold = 80
@@ -304,7 +305,7 @@ ready(function() {
   BodyClasses()
   Contact()
   LazyImages()
-  Actions()
+  ActionsMenu()
   // Slideshow()
 })
 
