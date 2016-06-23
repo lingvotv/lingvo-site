@@ -127,6 +127,7 @@ function ScrollerNav(options) {
   var nextArrows = $('.next-button', scroller)
   var verticalScroll = true
   var horizontalScroll = true
+  var isScrolling = false
 
   function checkLocation() {
     if (!location.hash) return
@@ -136,8 +137,10 @@ function ScrollerNav(options) {
   // Handle click on "next" arrow.
   nextArrows.forEach(function(arrow) {
     arrow.addEventListener('click', function() {
+      if (isScrolling) return
       var index = navItems.indexOf(selected)
-      navItems[index + 1].click()
+      var nextItem = navItems[index + 1]
+      nextItem && nextItem.click()
     })
   })
 
@@ -176,7 +179,7 @@ function ScrollerNav(options) {
     setTimeout(function() {
       verticalScroll = true
       horizontalScroll = true
-    }, 500)
+    }, 300)
   }
 
   function select(parts, options, callback) {
@@ -189,7 +192,13 @@ function ScrollerNav(options) {
     options.verticalScroll !== undefined || (options.verticalScroll = verticalScroll)
 
     // Vertical scroll.
-    if (options.verticalScroll) smoothScroll(target, options.duration, callback)
+    if (options.verticalScroll) {
+      isScrolling = true
+      smoothScroll(target, options.duration, function() {
+        isScrolling = false
+        if (callback) callback()
+      })
+    }
 
     // Horizontal scroll.
     if (parts[1]) {
@@ -205,16 +214,17 @@ function ScrollerNav(options) {
         selected = navItem
       }
 
-      function scrollDone() {
+      function onScrollStop() {
         setSelected()
         if (callback) callback()
       }
 
       if (options.horizontalScroll) {
+        isScrolling = true
         // Horizontal scroll.
-        smoothScroll(el, options.duration, scrollDone, scroller, 'horizontal')
+        smoothScroll(el, options.duration, onScrollStop, scroller, 'horizontal')
       } else {
-        scrollDone()
+        onScrollStop()
       }
     }
   }

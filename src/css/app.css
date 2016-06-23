@@ -5,6 +5,7 @@ body {
 a, a:visited {
   color: #1BA2F9;
   text-decoration: none;
+  outline: none;
 }
 .no-touch a:hover {
   text-decoration: underline;
@@ -243,7 +244,6 @@ a, a:visited {
 .scroller .scroll-container {
   height: 100%;
   overflow: hidden;
-  padding-bottom: 40px;
 }
 .scroller .next-button {
   width: 3em;
@@ -282,11 +282,12 @@ a, a:visited {
 .university-content {
   display: flex;
   justify-content: center;
+  align-self: center;
   height: 100%;
 }
 .university-content .descr {
   margin: 0 30px;
-  max-width: 30%;
+  max-width: 350px;
   font-size: 1.2em;
   line-height: 1.5;
 }
@@ -331,9 +332,13 @@ a, a:visited {
   color: #fff;
   padding: 60px 0;
 }
+.university .scroll-container {
+  padding-bottom: 40px;
+  display: flex;
+  min-height: 300px;
+}
 .university > h1 {
   text-align: center;
-  margin-bottom: 50px;
 }
 .university .university-content {
   float: left;
