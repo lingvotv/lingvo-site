@@ -256,9 +256,10 @@ function Actions() {
   var el = $('.actions')[0]
   var isMinified = false
   var threshold = 80
-
   window.addEventListener('scroll', function() {
-    var minify = document.body.scrollTop > threshold
+    // Firefox scrolls html element.
+    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+    var minify = scrollTop > threshold
 
     if (minify !== isMinified) {
       el.classList.toggle('is-maximized')
