@@ -115,7 +115,7 @@ a, a:visited {
   background: rgba(0, 0, 0, 0.5);
   font-size: 0.7em;
   white-space: nowrap;
-  padding-right: 3vw;
+  padding-right: 5vw;
 }
 .actions a {
   margin-top: 1.5vh;
@@ -125,11 +125,11 @@ a, a:visited {
   margin-right: 1.5vh;
 }
 .actions.is-maximized a {
-  margin-top: 3vh;
-  margin-bottom: 3vh;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
 }
 .actions.is-maximized a:first-child {
-  margin-right: 3vh;
+  margin-right: 5vh;
 }
 .actions.is-maximized {
   background: none;
@@ -142,7 +142,6 @@ a, a:visited {
   background-position: left top;
   background-size: cover;
 }
-
 .intro .logo {
   margin-top: 3vh;
 }
@@ -205,6 +204,47 @@ a, a:visited {
   margin: 0 3%;
   display: none;
 }
+
+/* Phone frame */
+.phone-frame {
+  display: block;
+  background: url(../img/phone-frame.png) no-repeat;
+  background-size: 100% 100%;
+  padding: 55px 15px;
+}
+
+/* Slideshow */
+.slideshow {
+  position: absolute;
+  right: 5vw;
+  top: 20%;
+}
+.slideshow .container {
+  position: relative;
+  width: 200px;
+  height: 355px;
+}
+.slideshow .image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0;
+}
+.slideshow .image.active {
+  opacity: 1;
+}
+.slideshow .subtitles-expanded {
+  background-image: url('../img/subtitles-expanded.png');
+}
+.slideshow .auth {
+  background-image: url('../img/auth.png');
+}
+.slideshow .settings {
+  background-image: url('../img/settings.png');
+}
+
 
 /* Supported services */
 .supported-services {
@@ -291,20 +331,6 @@ a, a:visited {
   font-size: 1.2em;
   line-height: 1.5;
 }
-.university-content .phone-frame {
-  background: url(../img/phone-frame.png) no-repeat;
-  background-size: 100% 100%;
-  margin-right: 2em;
-  padding: 55px 15px;
-  align-self: center;
-}
-.university-content .image {
-  display: inline-block;
-  width: 200px;
-  height: 355px;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
 .university-content ul {
   list-style-type: decimal;
   margin: 0;
@@ -312,15 +338,6 @@ a, a:visited {
 }
 .university-content li {
   margin-bottom: 0.5em;
-}
-.university-content .subtitles-expanded {
-  background-image: url('../img/subtitles-expanded.png');
-}
-.university-content .auth {
-  background-image: url('../img/auth.png');
-}
-.university-content .settings {
-  background-image: url('../img/settings.png');
 }
 
 /* University */
@@ -450,6 +467,7 @@ and (max-device-width : 736px) {
   .actions.is-maximized .install-extension,
   .intro .arrow-down,
   .intro .learn-more,
+  .slideshow,
   .university-content .landscape {
     display: none;
   }

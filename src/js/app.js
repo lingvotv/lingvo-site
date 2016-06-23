@@ -278,6 +278,24 @@ function Actions() {
   })
 }
 
+function Slideshow() {
+  var images = $('.slideshow .image')
+  var active = images.filter(function(image) {
+    return image.classList.contains('active')
+  })[0]
+
+  setInterval(function() {
+    var activeIndex = images.indexOf(active)
+    var nextActiveIndex = activeIndex + 1
+
+    if (!images[nextActiveIndex]) nextActiveIndex = 0
+
+    active.classList.remove('active')
+    active = images[nextActiveIndex]
+    active.classList.add('active')
+  }, 3000)
+}
+
 ready(function() {
   ;['.university-how', '.university-installation'].forEach(function(selector) {
     var nav = ScrollerNav({container: $(selector)[0]})
@@ -287,6 +305,7 @@ ready(function() {
   Contact()
   LazyImages()
   Actions()
+  // Slideshow()
 })
 
 window.addEventListener('load', function() {
