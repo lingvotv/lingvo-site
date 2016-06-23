@@ -20,12 +20,10 @@
         margin: 0;
         background: #000;
         color: #000;
-      }
-      :visited {
-        color: #000;
-      }
-      .page {
         opacity: 0;
+      }
+      a:visited {
+        color: #000;
       }
     </style>
   </head>
@@ -202,6 +200,7 @@
           './src/css/app.css'
         ].forEach(insert.bind(null, 'link', true))
         ;[
+          './lib/smoothscroll.js',
           './lib/social-share-kit/js/social-share-kit.js',
           './src/js/app.js'
         ].forEach(insert.bind(null, 'script', true))
@@ -214,10 +213,7 @@
 
       ga('create', 'UA-77430744-1', 'auto');
       ga('send', 'pageview');
-
     </script>
-    <!-- Won't get the ready event if loading by js. -->
-    <script src="/lib/smoothscroll.js"></script>
   </body>
 </html>
 

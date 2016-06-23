@@ -96,9 +96,9 @@ a, a:visited {
 .page {
   height: 97vh;
   color: #fff;
-  transition: opacity 1s;
 }
-.ready .page {
+.ready {
+  transition: opacity 1s;
   opacity: 1;
 }
 
