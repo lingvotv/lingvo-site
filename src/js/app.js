@@ -180,8 +180,6 @@ function ScrollerNav(options) {
     options.horizontalScroll !== undefined || (options.horizontalScroll = horizontalScroll)
     options.verticalScroll !== undefined || (options.verticalScroll = verticalScroll)
 
-console.trace('select', options)
-
     // Vertical scroll.
     if (options.verticalScroll) smoothScroll(target, options.duration, callback)
 

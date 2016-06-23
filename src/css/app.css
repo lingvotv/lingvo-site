@@ -297,6 +297,9 @@ a, a:visited {
   margin: 0;
   padding-left: 1em;
 }
+.university-content li {
+  margin-bottom: 0.5em;
+}
 .university-content .subtitles-expanded {
   background-image: url('../img/subtitles-expanded.png');
 }
