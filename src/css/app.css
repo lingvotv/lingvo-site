@@ -227,7 +227,7 @@ a, a:visited {
 .scroller .scroll-container {
   height: 100%;
   overflow: hidden;
-  margin-bottom: 20px;
+  padding-bottom: 40px;
 }
 .scroller .next-button {
   width: 3em;
