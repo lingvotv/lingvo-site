@@ -67,6 +67,7 @@ a, a:visited {
 .link-button:active {
   color: #D6D6D6;
   border-color: #D6D6D6;
+  text-decoration: none;
 }
 .cta {
   position: relative;
