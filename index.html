@@ -48,43 +48,43 @@
     </section>
     <section class="supported-services" id="supported-services">
       <h1>Supported Services</h1>
-      <a href="https://www.netflix.com" class="image netflix" target="_blank"></a>
-      <a href="https://www.amazon.com/primevideo" class="image amazon" target="_blank"></a>
-      <a href="https://www.youtube.com/" class="image youtube" target="_blank"></a>
+      <a href="https://www.netflix.com" class="image netflix" data-bg="netflix-logo.png" target="_blank"></a>
+      <a href="https://www.amazon.com/primevideo" class="image amazon" data-bg="amazon-instant-video-logo.png" target="_blank"></a>
+      <a href="https://www.youtube.com/" class="image youtube" data-bg="youtube-logo.png" target="_blank"></a>
     </section>
     <section class="university university-how" id="university-how">
       <h1>How this works</h1>
       <div class="scroller">
         <div class="scroll-container">
-          <section class="university-content language">
-            <span class="illustration computer illustration-left"></span>
+          <section class="university-content" data-name="language">
+            <span class="illustration visual landscape" data-bg="icons/google-glasses-with-wireless-on-a-man-head.svg"></span>
             <div class="descr">
-              <div class="illustration-top">
-                <span class="illustration computer"></span>
+              <div class="portrait">
+                <span class="illustration visual" data-bg="icons/google-glasses-with-wireless-on-a-man-head.svg"></span>
               </div>
               Watch a movie with sound and subtitles <b>both</b> in the language you aim to learn.
               <br /><br />
               It makes understanding easier and activates your <b>visual</b> memory!
             </div>
-            <button class="next-button lazy"></button>
+            <button class="next-button" data-bg="next.svg"></button>
           </section>
-          <section class="university-content app">
-            <span class="illustration translation illustration-left"></span>
+          <section class="university-content" data-name="app">
+            <span class="illustration translation landscape" data-bg="icons/translation.svg"></span>
             <div class="descr">
-              <div class="illustration-top">
-                <span class="illustration translation"></span>
+              <div class="portrait">
+                <span class="illustration translation" data-bg="icons/translation.svg"></span>
               </div>
               LingvoTV App on your phone receives subtitles from the movie while you watch it.
               <br /><br />
               Click on any word or words combination to translate them without stopping the movie!
             </div>
-            <button class="next-button lazy"></button>
+            <button class="next-button" data-bg="next.svg"></button>
           </section>
-          <section class="university-content translate">
-            <span class="illustration laughing illustration-left"></span>
+          <section class="university-content" data-name="translate">
+            <span class="illustration laughing landscape" data-bg="icons/happiness.svg"></span>
             <div class="descr">
-              <div class="illustration-top">
-                <span class="illustration laughing"></span>
+              <div class="portrait">
+                <span class="illustration laughing" data-bg="icons/happiness.svg"></span>
               </div>
               The most important thing - <b>have fun</b>!
               <br /><br />
@@ -94,53 +94,75 @@
         </div>
       </div>
       <nav class="scroller-nav">
-        <a href=" #university-how/language" class="selected">Language</a>
-        <a href=" #university-how/app">App</a>
-        <a href=" #university-how/translate">Translate</a>
+        <a href=" #university-how/language" class="selected"></a>
+        <a href=" #university-how/app"></a>
+        <a href=" #university-how/translate"></a>
       </nav>
     </section>
     <section class="university university-installation" id="university-installation">
       <h1>Installation</h1>
       <div class="scroller">
         <div class="scroll-container">
-          <section class="university-content extension">
-            <p class="descr">
+          <section class="university-content" data-name="extension">
+            <a class="link-button cta install-extension landscape" href="https://chrome.google.com/webstore/detail/dgeiagkojabjccafojhokcceakmehpbb" target="_blank">INSTALL EXTENSION</a>
+            <div class="descr">
+              <div class="portrait">
+                <a class="link-button cta install-extension" href="https://chrome.google.com/webstore/detail/dgeiagkojabjccafojhokcceakmehpbb" target="_blank">INSTALL EXTENSION</a>
+              </div>
               Install LingvoTV Chrome Extension.
               <br /><br />
-              It is required to send the subtitles to your phone.
-            </p>
-            <button class="next-button lazy"></button>
+              It will send the subtitles from the movie to your phone.
+            </div>
+            <button class="next-button" data-bg="next.svg"></button>
           </section>
-          <section class="university-content connect">
-            <p class="descr">
-              Connect LingvoTV app on your phone and your Chrome Extension.
+          <section class="university-content" data-name="connect">
+            <span class="illustration connect landscape" data-bg="icons/connection.svg"></span>
+            <div class="descr">
+              <div class="portrait">
+                <span class="illustration connect" data-bg="icons/connection.svg"></span>
+              </div>
+              Connect App to Extension.
               <br /><br />
-              Click on Extension to show the code. Enter this code in the app.
-            </p>
-            <button class="next-button lazy"></button>
+              <ul>
+                <li>Open <b>www.lingvo.tv</b> on your phone and OPEN APP.</li>
+                <li>Click on installed Extension to show the code.</li>
+                <li>Enter this code in the app.</li>
+              </ul>
+            </div>
+            <button class="next-button" data-bg="next.svg"></button>
           </section>
-          <section class="university-content setup-movie">
-            <p class="descr">
-              Open a movie in Chrome using one of the supported services.
+          <section class="university-content" data-name="setup-movie">
+            <span class="illustration movie landscape" data-bg="icons/cinema.svg"></span>
+            <div class="descr">
+              <div class="portrait">
+                <span class="illustration movie" data-bg="icons/cinema.svg"></span>
+              </div>
+              Open a movie in Chrome in one of <a href="#supported-services">supported services</a>.
               <br /><br />
-              Select sound and subtitles both in the language you want to learn.
-            </p>
-            <button class="next-button lazy"></button>
+              Select sound and subtitles <b>both</b> in the language you want to learn.
+            </div>
+            <button class="next-button" data-bg="next.svg"></button>
           </section>
-          <section class="university-content play">
-            <p class="descr">
-              Start playing movie. Once you see subtitles on the screen in the movie, you should see the same subtitles on your phone.
+          <section class="university-content play" data-name="play">
+            <span class="illustration play landscape" data-bg="icons/play-button.svg"></span>
+            <div class="descr">
+              <div class="portrait">
+                <span class="illustration play" data-bg="icons/play-button.svg"></span>
+              </div>
+              Play it!
+              <br />
+              Once you see subtitles in the movie, same subtitles are displayed on your phone.
               <br /><br />
               Now you can click on words to translate them.
-            </p>
+            </div>
           </section>
         </div>
       </div>
       <nav class="scroller-nav">
-        <a href=" #university-installation/extension" class="selected">extension</a>
-        <a href=" #university-installation/connect">connect</a>
-        <a href=" #university-installation/setup-movie">setup movie</a>
-        <a href=" #university-installation/play">play</a>
+        <a href=" #university-installation/extension" class="selected"></a>
+        <a href=" #university-installation/connect"></a>
+        <a href=" #university-installation/setup-movie"></a>
+        <a href=" #university-installation/play"></a>
       </nav>
     </section>
 

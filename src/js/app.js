@@ -27,6 +27,28 @@ function isInViewport(el) {
   return partialVertical
 }
 
+function removeHash() {
+  var scrollV
+  var scrollH
+  var loc = window.location
+
+  if (!loc.hash) return
+
+  if ('pushState' in history) {
+    history.pushState('', document.title, loc.pathname + loc.search)
+  } else {
+    // Prevent scrolling by storing the page's current scroll offset
+    scrollV = document.body.scrollTop
+    scrollH = document.body.scrollLeft
+
+    loc.hash = ''
+
+    // Restore the scroll offset, should be flicker free
+    document.body.scrollTop = scrollV
+    document.body.scrollLeft = scrollH
+  }
+}
+
 var hasChromeStore = window.chrome && window.chrome.webstore
 
 function BodyClasses() {
@@ -38,44 +60,69 @@ function BodyClasses() {
 }
 
 /* Bindings */
-function ScrollerNav(options) {
+function Scroller(options) {
   var scroller = $('.scroller', options.container)[0]
-  var navItems = $('.scroller-nav a', options.container)
-  var selected = $('.scroller-nav .selected', options.container)[0]
-  var nextArrows = $('.next-button', scroller)
+  var sections = $('section', scroller)
+  var sectionWidth
+  var totalWidth
+  var select = options.nav.select
+  var timerId
 
-  function select(parts) {
-    var target = $(parts[0])[0]
-    if (target !== options.container) return
+  function setWidth() {
+    sectionWidth = scroller.offsetWidth
+    totalWidth = sectionWidth * sections.length
+  }
 
-    // Vertical scroll.
-    smoothScroll(target, 500)
+  function setSelected() {
+    var scrollLeft = scroller.scrollLeft
 
-    // Horizontal scroll.
-    if (parts[1]) {
-      var navItem = navItems.filter(function(item) {
-        return item.href.indexOf(parts[1]) !== -1
-      })[0]
-      var el = $('.' + parts[1])[0]
-      // Horizontal scroll.
-      smoothScroll(el, 500, function() {
-        if (navItem === selected) return
-        navItem.classList.add('selected')
-        if (selected) selected.classList.remove('selected')
-        selected = navItem
-      }, scroller, 'horizontal')
+    for (var sectionNr = 1; sectionNr <= sections.length; sectionNr++) {
+      var rightEdge = sectionNr * sectionWidth
+      var leftEdge = rightEdge - sectionWidth
+      var relScrollLeft = scrollLeft - leftEdge
+
+      if (scrollLeft >= leftEdge && scrollLeft < rightEdge) {
+        var snapPoint = (rightEdge - leftEdge) / 2
+        var path = ['#' + options.container.id]
+
+        // Snap back.
+        if (relScrollLeft < snapPoint) {
+          path.push(sections[sectionNr - 1].dataset.name)
+        // Snap to next.
+        } else {
+          path.push(sections[sectionNr].dataset.name)
+        }
+
+        options.nav.setLocationWithoutScroll(path.join('/'))
+        select(path)
+
+        break
+      }
     }
   }
+
+  scroller.addEventListener('scroll', function() {
+    clearTimeout(timerId)
+    timerId = setTimeout(setSelected, 30)
+  })
+
+  window.addEventListener('resize', setWidth)
+  setWidth()
+}
+
+
+function ScrollerNav(options) {
+  var container = options.container
+  var scroller = $('.scroller', container)[0]
+  var navItems = $('.scroller-nav a', container)
+  var selected = $('.scroller-nav .selected', container)[0]
+  var nextArrows = $('.next-button', scroller)
+  var verticalScroll = true
+  var horizontalScroll = true
 
   function checkLocation() {
     if (!location.hash) return
     select(location.hash.split('/'))
-  }
-
-  function checkViewport() {
-    if (isInViewport(scroller)) {
-      scroller.classList.add('is-in-viewport')
-    }
   }
 
   // Handle click on "next" arrow.
@@ -86,18 +133,108 @@ function ScrollerNav(options) {
     })
   })
 
-  ;['resize', 'hashchange', 'scroll'].forEach(function(event) {
-    window.addEventListener(event, function() {
-      // Don't scroll on scroll!
-      if (event !== 'scroll') {
-        checkLocation()
-      }
+  navItems.forEach(function(item) {
+    item.addEventListener('click', function(e) {
+      e.preventDefault()
+      var hashIndex = item.href.indexOf('#')
+      var hash = item.href.substr(hashIndex)
 
-      checkViewport()
+      if (location.href === item.href) {
+        select(hash.split('/'), {verticalScroll: false})
+      } else {
+        setLocationWithoutScroll(hash, {horizontal: true})
+      }
     })
   })
 
+  ;['resize', 'hashchange', 'scroll'].forEach(function(event) {
+    window.addEventListener(event, function(e) {
+      // Don't scroll on scroll!
+      if (e.type !== 'scroll') {
+        checkLocation()
+      }
+    })
+  })
+
+  window.addEventListener('touchmove', removeHash)
+
   checkLocation()
+
+  function setLocationWithoutScroll(hash, options) {
+    options || (options = {})
+    if (options.vertical !== true) verticalScroll = false
+    if (options.horizontal !== true) horizontalScroll = false
+    location.hash = hash
+    setTimeout(function() {
+      verticalScroll = true
+      horizontalScroll = true
+    }, 500)
+  }
+
+  function select(parts, options, callback) {
+    var target = $(parts[0])[0]
+    if (target !== container) return
+
+    options || (options = {})
+    options.duration === null || (options.duration = 500)
+    options.horizontalScroll !== undefined || (options.horizontalScroll = horizontalScroll)
+    options.verticalScroll !== undefined || (options.verticalScroll = verticalScroll)
+
+console.trace('select', options)
+
+    // Vertical scroll.
+    if (options.verticalScroll) smoothScroll(target, options.duration, callback)
+
+    // Horizontal scroll.
+    if (parts[1]) {
+      var navItem = navItems.filter(function(item) {
+        return item.href.indexOf(parts[1]) !== -1
+      })[0]
+      var el = $('[data-name="' + parts[1] + '"]')[0]
+
+      function setSelected() {
+        if (navItem === selected) return
+        navItem.classList.add('selected')
+        if (selected) selected.classList.remove('selected')
+        selected = navItem
+      }
+
+      function scrollDone() {
+        setSelected()
+        if (callback) callback()
+      }
+
+      if (options.horizontalScroll) {
+        // Horizontal scroll.
+        smoothScroll(el, options.duration, scrollDone, scroller, 'horizontal')
+      } else {
+        scrollDone()
+      }
+    }
+  }
+
+  return {
+    select: select,
+    setLocationWithoutScroll: setLocationWithoutScroll
+  }
+}
+
+function LazyImages() {
+  var elements = $('[data-bg]')
+  var basePath = '/src/img'
+
+  function checkViewport() {
+    elements.forEach(function(el) {
+      if (isInViewport(el)) {
+        el.style.backgroundImage = 'url(' + basePath + '/' + el.dataset.bg + ')'
+      }
+    })
+  }
+
+  ;['resize', 'hashchange', 'scroll'].forEach(function(event) {
+    window.addEventListener(event, checkViewport)
+  })
+
   checkViewport()
 }
 
@@ -109,12 +246,15 @@ function Contact() {
   })
 }
 
-document.addEventListener('readystatechange', function() {
-  ScrollerNav({container: $('.university-how')[0]})
-  ScrollerNav({container: $('.university-installation')[0]})
+window.addEventListener('load', function() {
+  ;['.university-how', '.university-installation'].forEach(function(selector) {
+    var nav = ScrollerNav({container: $(selector)[0]})
+    Scroller({container: $(selector)[0], nav: nav})
+  })
   BodyClasses()
   Contact()
   SocialShareKit.init()
+  LazyImages()
 })
 
 }())
