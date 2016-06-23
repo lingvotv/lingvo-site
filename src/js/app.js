@@ -49,6 +49,14 @@ function removeHash() {
   }
 }
 
+function ready(callback) {
+  if (['interactive', 'complete', 'loaded'].indexOf(document.readyState) === -1) {
+    document.addEventListener('DOMContentLoaded', callback)
+  } else {
+    callback()
+  }
+}
+
 var hasChromeStore = window.chrome && window.chrome.webstore
 
 function BodyClasses() {
@@ -244,15 +252,18 @@ function Contact() {
   })
 }
 
-window.addEventListener('load', function() {
+ready(function() {
   ;['.university-how', '.university-installation'].forEach(function(selector) {
     var nav = ScrollerNav({container: $(selector)[0]})
     Scroller({container: $(selector)[0], nav: nav})
   })
   BodyClasses()
   Contact()
-  SocialShareKit.init()
   LazyImages()
+})
+
+window.addEventListener('load', function() {
+  SocialShareKit.init()
 })
 
 }())
