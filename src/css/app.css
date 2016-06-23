@@ -18,7 +18,6 @@ a, a:visited {
   line-height: 1;
   font-weight: 300;
   text-decoration: none;
-  z-index: 1;
   white-space: nowrap;
   text-shadow: 1px 1px 4px #000;
 }
@@ -103,6 +102,39 @@ a, a:visited {
   opacity: 1;
 }
 
+/* Actions */
+.actions {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  top: 0;
+  right: 0;
+  text-align: right;
+  transition: font-size 300ms;
+  background: rgba(0, 0, 0, 0.5);
+  font-size: 0.7em;
+  white-space: nowrap;
+  padding-right: 3vw;
+}
+.actions a {
+  margin-top: 1.5vh;
+  margin-bottom: 1.5vh;
+}
+.actions a:first-child {
+  margin-right: 1.5vh;
+}
+.actions.is-maximized a {
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+}
+.actions.is-maximized a:first-child {
+  margin-right: 3vh;
+}
+.actions.is-maximized {
+  background: none;
+  font-size: inherit;
+}
+
 /* Intro */
 .intro {
   background: url(../img/netflix-back.jpg) no-repeat;
@@ -150,23 +182,6 @@ a, a:visited {
   font-weight: normal;
   text-shadow: 1px 1px 4px #000;
   margin-bottom: 1.5em;
-}
-
-.intro .actions {
-  position: absolute;
-  width: 100%;
-  top: 0;
-  right: 3%;
-  text-align: right;
-}
-.intro .actions a {
-  margin-top: 3vh;
-  z-index: 2;
-}
-.intro .install-extension {
-}
-.intro .open-app {
-  margin-left: 10px;
 }
 .intro .learn-more {
   color: #fff;
@@ -289,10 +304,6 @@ a, a:visited {
   background-repeat: no-repeat;
   background-size: contain;
 }
-.university-content .install-extension {
-  margin-right: 2em;
-  align-self: center;
-}
 .university-content ul {
   list-style-type: decimal;
   margin: 0;
@@ -366,12 +377,16 @@ a, a:visited {
 .university-installation .scroll-container {
   width: 400vw;
 }
+.university-installation .illustration.extension {
+  width: 70px;
+  height: 70px;
+}
 .university-installation .illustration.connect {
   width: 70px;
   height: 70px;
 }
 .university-installation .illustration.movie {
-  width: 80px;
+  width: 70px;
   height: 80px;
 }
 .university-installation .illustration.play {
@@ -427,7 +442,7 @@ and (max-device-width : 736px) {
 }
 
 @media only screen and (max-width: 639px) {
-  .intro .install-extension,
+  .actions.is-maximized .install-extension,
   .intro .arrow-down,
   .intro .learn-more,
   .university-content .landscape {

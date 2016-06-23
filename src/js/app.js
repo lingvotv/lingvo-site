@@ -252,6 +252,21 @@ function Contact() {
   })
 }
 
+function Actions() {
+  var el = $('.actions')[0]
+  var isMinified = false
+  var threshold = 80
+
+  window.addEventListener('scroll', function() {
+    var minify = document.body.scrollTop > threshold
+
+    if (minify !== isMinified) {
+      el.classList.toggle('is-maximized')
+      isMinified = minify
+    }
+  })
+}
+
 ready(function() {
   ;['.university-how', '.university-installation'].forEach(function(selector) {
     var nav = ScrollerNav({container: $(selector)[0]})
@@ -260,6 +275,7 @@ ready(function() {
   BodyClasses()
   Contact()
   LazyImages()
+  Actions()
 })
 
 window.addEventListener('load', function() {
