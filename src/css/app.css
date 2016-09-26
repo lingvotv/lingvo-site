@@ -13,6 +13,7 @@ a, a:visited {
 /* Logo */
 .logo {
   position: absolute;
+  z-index: 1;
   display: inline-block;
   color: #1BA2F9;
   font-size: 3em;
@@ -280,6 +281,14 @@ a, a:visited {
   flex-grow: 1;
   position: relative;
   -webkit-overflow-scrolling: touch;
+  /* IE */
+  scrollbar-face-color: #000000;
+  scrollbar-shadow-color: #2D2C4D;
+  scrollbar-highlight-color:#7D7E94;
+  scrollbar-3dlight-color: #7D7E94;
+  scrollbar-darkshadow-color: #2D2C4D;
+  scrollbar-track-color: #1a1a1a;
+  scrollbar-arrow-color: #C1C1D1;
 }
 .scroller .scroll-container {
   height: 100%;
