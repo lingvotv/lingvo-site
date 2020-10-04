@@ -4,6 +4,10 @@
     "smoothscroll": "^0.2.2",
     "social-share-kit": "^1.0.8"
   },
+  "devDependencies": {
+    "node-static": "^0.7.7",
+    "localtunnel": "^1.8.1"
+  },
   "scripts": {
     "start": "npm run static & npm run tunnel:site",
     "static": "static .",
