@@ -74,8 +74,12 @@ a:visited {
 .cta {
   position: relative;
   border: none;
-  background-color: #1ba2f9;
   border-radius: 5px;
+  background-color: #1ba2f9;
+  background-repeat: no-repeat;
+  background-size: 1.5em;
+  background-position: 1em center;
+  padding-left: 3em;
 }
 .cta:before {
   content: "";
@@ -93,6 +97,12 @@ a:visited {
 .no-touch .cta:hover:before,
 .cta:active:before {
   opacity: 0.4;
+}
+.cta.install-extension {
+  background-image: url(../img/icons/chrome.svg);
+}
+.cta.open-app {
+  background-image: url(../img/icons/phone.svg);
 }
 
 /* Page */
