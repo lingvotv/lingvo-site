@@ -1,9 +1,10 @@
 body {
   background: #000;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-a, a:visited {
-  color: #1BA2F9;
+a,
+a:visited {
+  color: #1ba2f9;
   text-decoration: none;
   outline: none;
 }
@@ -15,7 +16,7 @@ a, a:visited {
   position: absolute;
   z-index: 1;
   display: inline-block;
-  color: #1BA2F9;
+  color: #1ba2f9;
   font-size: 3em;
   line-height: 1;
   font-weight: 300;
@@ -24,10 +25,10 @@ a, a:visited {
   text-shadow: 1px 1px 4px #000;
 }
 .logo:visited {
-  color: #1BA2F9;
+  color: #1ba2f9;
 }
 .no-touch .logo:hover {
-  text-decoration: none ;
+  text-decoration: none;
 }
 .logo em {
   font-size: 0.25em;
@@ -66,14 +67,14 @@ a, a:visited {
 .no-touch .link-button:hover,
 .link-button:visited:active,
 .link-button:active {
-  color: #D6D6D6;
-  border-color: #D6D6D6;
+  color: #d6d6d6;
+  border-color: #d6d6d6;
   text-decoration: none;
 }
 .cta {
   position: relative;
   border: none;
-  background-color: #1BA2F9;
+  background-color: #1ba2f9;
   border-radius: 5px;
 }
 .cta:before {
@@ -153,9 +154,21 @@ a, a:visited {
   max-width: 70%;
   height: 100%;
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+45,000000+100&0.9+45,1+45,0+100 */
-  background: -moz-linear-gradient(left,  rgba(0,0,0,1) 45%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(left,  rgba(0,0,0,1) 45%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right,  rgba(0,0,0,1) 45%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: -moz-linear-gradient(
+    left,
+    rgba(0, 0, 0, 1) 45%,
+    rgba(0, 0, 0, 0) 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    left,
+    rgba(0, 0, 0, 1) 45%,
+    rgba(0, 0, 0, 0) 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 1) 45%,
+    rgba(0, 0, 0, 0) 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
 }
 
@@ -237,15 +250,14 @@ a, a:visited {
   opacity: 1;
 }
 .slideshow .subtitles-expanded {
-  background-image: url('../img/subtitles-expanded.png');
+  background-image: url("../img/subtitles-expanded.png");
 }
 .slideshow .auth {
-  background-image: url('../img/auth.png');
+  background-image: url("../img/auth.png");
 }
 .slideshow .settings {
-  background-image: url('../img/settings.png');
+  background-image: url("../img/settings.png");
 }
-
 
 /* Supported services */
 .supported-services {
@@ -283,12 +295,12 @@ a, a:visited {
   -webkit-overflow-scrolling: touch;
   /* IE */
   scrollbar-face-color: #000000;
-  scrollbar-shadow-color: #2D2C4D;
-  scrollbar-highlight-color:#7D7E94;
-  scrollbar-3dlight-color: #7D7E94;
-  scrollbar-darkshadow-color: #2D2C4D;
+  scrollbar-shadow-color: #2d2c4d;
+  scrollbar-highlight-color: #7d7e94;
+  scrollbar-3dlight-color: #7d7e94;
+  scrollbar-darkshadow-color: #2d2c4d;
   scrollbar-track-color: #1a1a1a;
-  scrollbar-arrow-color: #C1C1D1;
+  scrollbar-arrow-color: #c1c1d1;
 }
 .scroller .scroll-container {
   height: 100%;
@@ -315,7 +327,7 @@ a, a:visited {
 }
 .scroller-nav a:after {
   display: block;
-  content: '';
+  content: "";
   border: 1px solid #fff;
   border-radius: 50%;
   width: 15px;
@@ -448,25 +460,19 @@ footer a:hover {
 }
 
 /* IP 5*/
-@media only screen
-and (min-device-width: 320px)
-and (max-device-width: 568px) {
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
   body {
     font-size: 12px;
   }
 }
 /* IP 6*/
-@media only screen
-and (min-device-width : 375px)
-and (max-device-width : 667px) {
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
   body {
     font-size: 14px;
   }
 }
 /* IP 6plus */
-@media only screen
-and (min-device-width : 414px)
-and (max-device-width : 736px) {
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) {
   body {
     font-size: 16px;
   }
@@ -494,7 +500,8 @@ and (max-device-width : 736px) {
   }
 }
 
-.ssk, .ssk:visited {
+.ssk,
+.ssk:visited {
   color: #fff;
 }
 .ssk-sticky {
