@@ -167,7 +167,9 @@ a:visited {
 }
 .intro aside {
   position: relative;
-  padding-left: 3%;
+  height: 100%;
+}
+.intro .darken-bg {
   width: 400px;
   max-width: 70%;
   height: 100%;
@@ -189,14 +191,21 @@ a:visited {
   ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
 }
-
 .intro .vp {
   position: absolute;
   top: 50%;
   margin-top: -200px;
+  padding-left: 3%;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: flex-end;
 }
-
-.intro h1 {
+.intro .vp .teaser {
+  width: 400px;
+  max-width: 70%;
+}
+.intro .vp h1 {
   font-size: 2.5em;
   font-weight: 700;
   line-height: 1;
@@ -206,7 +215,7 @@ a:visited {
   white-space: nowrap;
   text-shadow: 1px 1px 4px #000;
 }
-.intro h2 {
+.intro .vp h2 {
   font-size: 1.7em;
   line-height: 1.5;
   margin: 0;
@@ -215,6 +224,16 @@ a:visited {
   text-shadow: 1px 1px 4px #000;
   margin-bottom: 1.5em;
 }
+
+.intro .subscribe {
+  flex-grow: 1;
+  justify-content: center;
+  display: flex;
+}
+.intro .subscribe .formkit-form {
+  min-width: 50vw;
+}
+
 .intro .learn-more {
   color: #fff;
   padding: 15px 20px;
@@ -234,6 +253,8 @@ a:visited {
   position: absolute;
   bottom: 4vh;
   margin: 0 3%;
+}
+.no-touch .intro .mobile-hint {
   display: none;
 }
 
@@ -496,7 +517,7 @@ footer a:hover {
   }
 }
 
-@media only screen and (max-width: 639px) {
+@media only screen and (max-width: 1024px) {
   .actions.is-maximized .install-extension,
   .intro .arrow-down,
   .intro .learn-more,
@@ -513,8 +534,9 @@ footer a:hover {
   .university-content .next-button {
     display: none;
   }
-  .intro .mobile-hint {
-    display: block;
+  .intro .vp {
+    flex-direction: column;
+    align-items: center;
   }
 }
 
@@ -524,4 +546,8 @@ footer a:hover {
 }
 .ssk-sticky {
   display: block;
+}
+
+.formkit-powered-by-convertkit-container {
+  display: none !important;
 }
