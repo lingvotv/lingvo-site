@@ -130,21 +130,26 @@ a:visited {
   background: rgba(0, 0, 0, 0.5);
   font-size: 0.7em;
   white-space: nowrap;
+  padding-right: 2vw;
+  padding-left: 2vw;
+}
+.actions.is-maximized {
   padding-right: 5vw;
+  padding-left: 5vw;
 }
 .actions a {
   margin-top: 1.5vh;
   margin-bottom: 1.5vh;
 }
 .actions a:not(:first-child) {
-  margin-left: 1.5vh;
+  margin-left: 0.5vh;
 }
 .actions.is-maximized a {
   margin-top: 5vh;
   margin-bottom: 5vh;
 }
 .actions.is-maximized a:not(:first-child) {
-  margin-left: 3vh;
+  margin-left: 1vh;
 }
 .actions.is-maximized {
   background: none;
