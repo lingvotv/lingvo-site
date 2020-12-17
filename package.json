@@ -10,7 +10,7 @@
   },
   "scripts": {
     "start": "npm run static & npm run tunnel:site",
-    "static": "static .",
-    "tunnel:site": "lt -s lingvo -p 8080"
+    "static": "static .  --port 8081",
+    "tunnel:site": "lt -s lingvo -p 8081"
   }
 }
