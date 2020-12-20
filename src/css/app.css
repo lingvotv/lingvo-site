@@ -55,7 +55,7 @@ a:visited {
   padding: 1em;
   white-space: nowrap;
   -webkit-touch-callout: none;
-  font-size: 1.3em;
+  font-size: 1.2em;
   line-height: 1;
 }
 .link-button:visited,
@@ -164,6 +164,7 @@ a:visited {
 .intro aside {
   position: relative;
   height: 100%;
+  display: flex;
 }
 .intro .darken-bg {
   width: 400px;
@@ -190,15 +191,14 @@ a:visited {
 .intro .vp {
   position: absolute;
   top: 50%;
+  width: 100%;
   margin-top: -200px;
-  padding-left: 3%;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
 }
 .intro .vp .teaser {
-  width: 400px;
-  max-width: 70%;
+  margin-left: 4vw;
 }
 .intro .vp h1 {
   font-size: 2.5em;
@@ -225,6 +225,7 @@ a:visited {
   justify-content: center;
   display: flex;
   padding: 0 3vw;
+  margin-right: 4vw;
 }
 .intro .subscribe .formkit-form {
   min-width: 50vw;
@@ -541,7 +542,10 @@ footer a:hover {
 .ssk-sticky {
   display: block;
 }
-
+.ssk-sticky.ssk-right.ssk-center {
+  top: 50%;
+  margin-top: -160px;
+}
 .formkit-powered-by-convertkit-container {
   display: none !important;
 }
