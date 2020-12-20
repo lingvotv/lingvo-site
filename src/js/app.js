@@ -59,13 +59,10 @@
     }
   }
 
-  var hasChromeStore = window.chrome && window.chrome.webstore;
-
   function BodyClasses() {
     var classes = ["ready"];
     var hasTouch = "ontouchstart" in window;
     classes.push(hasTouch ? "touch" : "no-touch");
-    if (!hasChromeStore) classes.push("no-chrome-store");
     document.body.className = classes.join(" ");
   }
 
