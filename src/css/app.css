@@ -103,10 +103,6 @@ a:visited {
 .cta.open-app {
   background-image: url(../img/icons/phone.svg);
 }
-.cta.upgrade {
-  background-color: rgb(131, 0, 52);
-  background-image: url(../img/icons/shopping-cart.svg);
-}
 
 /* Page */
 .page {
