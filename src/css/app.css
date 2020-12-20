@@ -55,7 +55,7 @@ a:visited {
   padding: 1em;
   white-space: nowrap;
   -webkit-touch-callout: none;
-  font-size: 1.5em;
+  font-size: 1.3em;
   line-height: 1;
 }
 .link-button:visited,
@@ -193,7 +193,6 @@ a:visited {
   margin-top: -200px;
   padding-left: 3%;
   display: flex;
-  width: 100%;
   flex-direction: row;
   align-items: flex-end;
 }
@@ -513,7 +512,6 @@ footer a:hover {
 }
 
 @media only screen and (max-width: 1024px) {
-  .actions.is-maximized .install-extension,
   .intro .arrow-down,
   .intro .learn-more,
   .slideshow,
