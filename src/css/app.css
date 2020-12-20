@@ -246,6 +246,10 @@ a:visited {
   left: 50%;
   margin-left: -2em;
 }
+.touch .intro .arrow-down {
+  display: none;
+}
+
 .intro .mobile-hint {
   position: absolute;
   bottom: 4vh;
@@ -514,7 +518,6 @@ footer a:hover {
 }
 
 @media only screen and (max-width: 1024px) {
-  .intro .arrow-down,
   .intro .learn-more,
   .slideshow,
   .university-content .landscape {
