@@ -360,6 +360,9 @@ a:visited {
   border: 0;
   outline: 0;
 }
+.touch .scroller .next-button {
+  display: none;
+}
 
 /* Scroller nav */
 .scroller-nav {
@@ -504,6 +507,9 @@ a:visited {
   border: 1px solid #fff;
   border-radius: 5px;
 }
+.pricing article h2 {
+  margin: 0;
+}
 .pricing article ul {
   padding: 0;
   margin: 2em 0;
@@ -575,9 +581,6 @@ footer a:hover {
   }
   .university-content .descr {
     max-width: 70%;
-  }
-  .university-content .next-button {
-    display: none;
   }
   .intro .vp {
     flex-direction: column;
