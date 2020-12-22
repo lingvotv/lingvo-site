@@ -275,7 +275,7 @@
     var el = $(".contact")[0];
     $(".contact")[0].addEventListener("click", function (e) {
       e.preventDefault();
-      location.href = "mailto:lingvotvapp@gmail.com";
+      location.href = "mailto:hi@lingvo.tv";
     });
   }
 
@@ -374,12 +374,6 @@
   }
 
   ready(function () {
-    [".university-how", ".university-installation"].forEach(function (
-      selector
-    ) {
-      var nav = ScrollerNav({ container: $(selector)[0] });
-      Scroller({ container: $(selector)[0], nav: nav });
-    });
     BodyClasses();
     Contact();
     LazyImages();
@@ -392,6 +386,12 @@
   });
 
   window.addEventListener("load", function () {
+    [".university-how", ".university-installation"].forEach(function (
+      selector
+    ) {
+      var nav = ScrollerNav({ container: $(selector)[0] });
+      Scroller({ container: $(selector)[0], nav: nav });
+    });
     SocialShareKit.init();
   });
 })();
