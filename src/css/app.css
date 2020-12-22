@@ -311,9 +311,10 @@ a:hover {
   background: #1a1a1a;
   color: #fff;
   text-align: center;
+  padding: 90px 0 150px 0;
 }
 .supported-services h1 {
-  margin-bottom: 40px;
+  margin-bottom: 100px;
 }
 .supported-services .image {
   display: inline-block;
