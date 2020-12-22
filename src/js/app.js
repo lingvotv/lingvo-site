@@ -4,9 +4,17 @@
   var baseApiUrl = isLocalEnv
     ? "http://localhost:3000"
     : "https://api.lingvo.tv";
-  var features = {
-    pricing: isLocalEnv ? true : false,
+
+  var config;
+  var defaultConfig = {
+    features: {
+      pricing: false,
+    },
   };
+
+  try {
+    config = JSON.parse(localStorage.getItem("lingvo.tv")) || defaultConfig;
+  } catch (err) {}
 
   /* Utils */
 
@@ -379,7 +387,7 @@
     LazyImages();
     ActionsMenu();
     // Slideshow()
-    if (features.pricing) {
+    if (config.features.pricing) {
       $('[data-key="pricing"]')[0].style.display = "block";
       Pricing();
     }
