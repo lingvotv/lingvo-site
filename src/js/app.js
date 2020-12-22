@@ -1,4 +1,13 @@
 (function () {
+  /* Config */
+  var isLocalEnv = location.hostname === "localhost";
+  var baseApiUrl = isLocalEnv
+    ? "http://localhost:3000"
+    : "https://api.lingvo.tv";
+  var features = {
+    pricing: isLocalEnv ? true : false,
+  };
+
   /* Utils */
 
   function toArray(obj) {
@@ -59,6 +68,8 @@
     }
   }
 
+  /* Bindings */
+
   function BodyClasses() {
     var classes = ["ready"];
     var hasTouch = "ontouchstart" in window;
@@ -66,7 +77,6 @@
     document.body.className = classes.join(" ");
   }
 
-  /* Bindings */
   function Scroller(options) {
     var scroller = $(".scroller", options.container)[0];
     var sections = $("section", scroller);
@@ -304,6 +314,65 @@
     }, 3000);
   }
 
+  function Pricing() {
+    var prices;
+    var apiUrl = baseApiUrl + "/stripe/prices";
+    var successUrl = "http://localhost:8080";
+    var cancelUrl = "http://localhost:8081/#pricing";
+    var apiKey =
+      "pk_test_51HzVgsIhiGCkjwyhsSdF4zL96uQqPPIrt7jfOtjMMzUmNS52RU5AvjYuRQIUPaM8pPbFJ6uAcqoi14Szt76jHznM00sNDIsnAc";
+
+    if (!isLocalEnv) {
+      successUrl = "https://app.lingvo.tv";
+      cancelUrl = "https://lingvo.tv/#pricing";
+      apiKey =
+        "pk_live_51HzVgsIhiGCkjwyhbQVTsMUB9PxuNSn9rwvH7V4hlz5OpykMVANpJjbAiEpk6d1PMlrEFTdg45QlKqGpBpRq2QZQ00KIfSnl4i";
+    }
+
+    function checkout() {
+      var stripe = Stripe(apiKey);
+
+      /*
+       * When the customer clicks on the button, redirect
+       * them to Checkout.
+       */
+      stripe
+        .redirectToCheckout({
+          lineItems: [{ price: prices.premium.priceId, quantity: 1 }],
+          mode: "subscription",
+          successUrl: successUrl,
+          cancelUrl: cancelUrl,
+          //customerEmail: ""
+        })
+        .then(function (result) {
+          if (result.error) {
+            /*
+             * If `redirectToCheckout` fails due to a browser or network
+             * error, display the localized error message to your customer.
+             */
+            var displayError = $("#error-message")[0];
+            displayError.textContent = result.error.message;
+          }
+        });
+    }
+
+    var upgradeButton = $("[data-key='upgrade']")[0];
+    upgradeButton.addEventListener("click", function (event) {
+      event.preventDefault();
+      if (prices) checkout();
+    });
+
+    fetch(apiUrl)
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (res) {
+        prices = res;
+        $('[data-key="price"]')[0].textContent =
+          prices.premium.formattedPrice + " /month";
+      });
+  }
+
   ready(function () {
     [".university-how", ".university-installation"].forEach(function (
       selector
@@ -316,6 +385,10 @@
     LazyImages();
     ActionsMenu();
     // Slideshow()
+    if (features.pricing) {
+      $('[data-key="pricing"]')[0].style.display = "block";
+      Pricing();
+    }
   });
 
   window.addEventListener("load", function () {

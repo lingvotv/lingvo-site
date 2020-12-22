@@ -51,10 +51,10 @@
         >Web App</a
       >
     </div>
-    <section class="page intro">
+    <section class="intro">
       <aside>
         <div class="vp">
-          <div class="teaser">
+          <main class="teaser">
             <a href="/" class="logo">LINGVO<em>TV</em></a>
             <h1>Learn languages</h1>
             <h2>
@@ -66,7 +66,7 @@
               >Learn More</a
             >
             -->
-          </div>
+          </main>
           <div class="subscribe">
             <script
               async
@@ -278,6 +278,40 @@
       </nav>
     </section>
 
+    <section class="pricing" id="pricing" data-key="pricing">
+      <h1>Pricing</h1>
+      <div class="plans">
+        <article>
+          <h2>Free</h2>
+          <p>Perfect for translating words on the fly</p>
+          <ul>
+            <li>Receive subtitles in the Web App</li>
+            <li>Translate subtitles</li>
+          </ul>
+        </article>
+        <article>
+          <h2 data-key="price">Premium</h2>
+          <p>For more efficien learning</p>
+          <ul>
+            <li>View and edit the history of translated words</li>
+            <li>Vote on the new features prioritization</li>
+            <li>Support the future development of LingvoTV</li>
+          </ul>
+
+          <h3>Upcomming features</h3>
+          <ul>
+            <li>Export the history</li>
+            <li>Play/pause the movie from the Web App</li>
+            <li>Flash Cards game with words you translated</li>
+          </ul>
+          <a class="link-button cta upgrade" href=" #pricing" data-key="upgrade"
+            >Upgrade</a
+          >
+          <div id="error-message"></div>
+        </article>
+      </div>
+    </section>
+
     <footer>
       <a href="terms.html" target="_blank">Terms of Use</a>
       <a href="" class="contact">Contact</a>
@@ -319,6 +353,7 @@
         [
           "./lib/smoothscroll.js",
           "./lib/social-share-kit/js/social-share-kit.js",
+          "https://js.stripe.com/v3",
           "./src/js/app.js",
         ].forEach(insert.bind(null, "script", true));
       })();

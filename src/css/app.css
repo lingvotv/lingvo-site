@@ -2,6 +2,10 @@ body {
   background: #000;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
 a,
 a:visited {
   color: #1ba2f9;
@@ -11,6 +15,11 @@ a:visited {
 .no-touch a:hover {
   text-decoration: underline;
 }
+.ready {
+  transition: opacity 1s;
+  opacity: 1;
+}
+
 /* Logo */
 .logo {
   display: inline-block;
@@ -103,15 +112,9 @@ a:visited {
 .cta.open-app {
   background-image: url(../img/icons/phone.svg);
 }
-
-/* Page */
-.page {
-  height: 97vh;
-  color: #fff;
-}
-.ready {
-  transition: opacity 1s;
-  opacity: 1;
+.cta.upgrade {
+  background-color: rgb(131, 0, 52);
+  background-image: url(../img/icons/shopping-cart.svg);
 }
 
 /* Actions */
@@ -124,7 +127,7 @@ a:visited {
   text-align: right;
   transition: font-size 300ms;
   background: rgba(0, 0, 0, 0.5);
-  font-size: 0.6em;
+  font-size: 0.8em;
   white-space: nowrap;
   padding-right: 2vw;
   padding-left: 2vw;
@@ -157,6 +160,9 @@ a:visited {
   background: url(../img/netflix-back.jpg) no-repeat;
   background-position: left top;
   background-size: cover;
+  height: 97vh;
+  color: #fff;
+  padding: 0;
 }
 .intro .logo {
   margin-bottom: 10vh;
@@ -304,7 +310,6 @@ a:visited {
   background: #1a1a1a;
   color: #fff;
   text-align: center;
-  padding: 60px 0;
 }
 .supported-services h1 {
   margin-bottom: 40px;
@@ -407,7 +412,6 @@ a:visited {
   display: flex;
   flex-flow: column;
   color: #fff;
-  padding: 60px 0;
 }
 .university .scroll-container {
   padding-bottom: 40px;
@@ -474,6 +478,50 @@ a:visited {
 .university-installation .illustration.play {
   width: 80px;
   height: 80px;
+}
+
+/* Pricing */
+.pricing {
+  color: #fff;
+  padding: 1em;
+  display: none;
+}
+.pricing h1 {
+  display: block;
+  text-align: center;
+}
+.pricing .plans {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.pricing article {
+  padding: 2em;
+  display: inline-block;
+  flex-grow: 1;
+  margin: 1em;
+  max-width: 450px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+}
+.pricing article ul {
+  padding: 0;
+  margin: 2em 0;
+}
+.pricing article li {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 0.6em;
+  font-size: 1.2em;
+  display: flex;
+}
+.pricing article li::before {
+  content: "✓";
+  margin-right: 0.4em;
+  color: #1ba2f9;
+}
+.pricing .upgrade {
+  margin-left: 1em;
 }
 
 /* Footer */
