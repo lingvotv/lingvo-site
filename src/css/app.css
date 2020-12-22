@@ -7,7 +7,8 @@ section {
   padding-bottom: 60px;
 }
 a,
-a:visited {
+a:visited,
+a:hover {
   color: #1ba2f9;
   text-decoration: none;
   outline: none;
