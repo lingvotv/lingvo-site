@@ -376,8 +376,7 @@
       })
       .then(function (res) {
         prices = res;
-        $('[data-key="price"]')[0].textContent =
-          prices.premium.formattedPrice + " /month";
+        $('[data-key="price"]')[0].textContent = prices.premium.formattedPrice;
       });
   }
 

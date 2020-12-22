@@ -395,6 +395,11 @@ a:hover {
   justify-content: center;
   align-self: center;
 }
+.university-content h2 {
+  margin: 0;
+  line-height: 1;
+  margin-bottom: 0.5em;
+}
 .university-content .descr {
   margin: 0 30px;
   max-width: 350px;
