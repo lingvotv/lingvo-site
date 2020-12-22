@@ -493,6 +493,7 @@ a:hover {
 /* Pricing */
 .pricing {
   color: #fff;
+  background: #141414;
   padding: 1em;
   display: none;
 }
