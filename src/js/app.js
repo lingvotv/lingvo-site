@@ -7,9 +7,7 @@
 
   var config;
   var defaultConfig = {
-    features: {
-      pricing: false,
-    },
+    features: {},
   };
 
   try {
@@ -386,10 +384,7 @@
     LazyImages();
     ActionsMenu();
     // Slideshow()
-    if (config.features.pricing) {
-      $('[data-key="pricing"]')[0].style.display = "block";
-      Pricing();
-    }
+    Pricing();
   });
 
   window.addEventListener("load", function () {
