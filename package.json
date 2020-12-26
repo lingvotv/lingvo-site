@@ -9,8 +9,8 @@
     "localtunnel": "^1.8.1"
   },
   "scripts": {
-    "start": "npm run static & npm run tunnel:site",
-    "static": "static .  --port 8081",
-    "tunnel:site": "lt -s lingvo -p 8081"
+    "start": "npm run static & npm run tunnel",
+    "static": "static . --port 8081 --headers '{\"Access-Control-Allow-Origin\": \"*\"}'",
+    "tunnel": "lt -s lingvo -p 8081"
   }
 }
