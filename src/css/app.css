@@ -490,10 +490,22 @@ a:hover {
   height: 80px;
 }
 
+/* FAQ*/
+.faq {
+  background: #141414;
+  display: flex;
+  justify-content: center;
+}
+.faq > div {
+  margin: 0 10vw;
+  max-width: 800px;
+  min-width: 320px;
+}
+
 /* Pricing */
 .pricing {
   color: #fff;
-  background: #141414;
+  background: #1a1a1a;
   padding: 1em;
 }
 .pricing h1 {

@@ -1,0 +1,256 @@
+<style>
+  .faq-accordion h1 {
+    margin: 0;
+    line-height: 2;
+    text-align: center;
+  }
+
+  .faq-accordion h2 {
+    margin: 0 0 0.5em;
+    font-weight: normal;
+  }
+
+  .faq-accordion input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+  }
+
+  .faq-accordion .row {
+    display: flex;
+  }
+  .faq-accordion .col {
+    flex: 1;
+  }
+  .faq-accordion .col:last-child {
+    margin-left: 1em;
+  }
+
+  /* Accordion styles */
+  .faq-accordion .tabs {
+    overflow: hidden;
+    box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
+  }
+
+  .faq-accordion .tab {
+    width: 100%;
+    color: white;
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+  .faq-accordion .tab-label {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8em;
+    background: #303030;
+    cursor: pointer;
+    font-size: 1.2em;
+    margin-bottom: 1px;
+  }
+  .faq-accordion .tab-label:hover {
+  }
+  /* Icon */
+  .faq-accordion .tab-label::after {
+    content: "❯";
+    width: 1em;
+    height: 1em;
+    margin-left: 0.5em;
+    text-align: center;
+    transition: all 0.35s;
+  }
+  .faq-accordion .tab-content {
+    max-height: 0;
+    padding: 0 1em;
+    transition: all 0.35s;
+    background: #303030;
+    font-size: 1.2em;
+    overflow: auto;
+  }
+  .faq-accordion .tab-close {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1em;
+    font-size: 0.75em;
+    background: #2c3e50;
+    cursor: pointer;
+  }
+  .faq-accordion .tab-close:hover {
+    background: #1a252f;
+  }
+
+  .faq-accordion input:checked + .tab-label {
+  }
+  .faq-accordion input:checked + .tab-label::after {
+    transform: rotate(90deg);
+  }
+  .faq-accordion input:checked ~ .tab-content {
+    max-height: 100vh;
+    padding: 1em;
+  }
+
+  /* Inside Tab Content */
+  .faq-accordion .tab-content ul {
+    padding: 0;
+    padding-left: 1em;
+    margin: 0;
+  }
+  .faq-accordion .tab-content li {
+    margin-bottom: 1em;
+    list-style: decimal;
+  }
+  .faq-accordion .tab-content li:last-child {
+    margin: 0;
+  }
+</style>
+
+<div class="faq-accordion">
+  <div class="tabs">
+    <div class="tab">
+      <input type="radio" id="rd1" name="rd" />
+      <label class="tab-label" for="rd1"
+        >Why can't I see subtitles in the Web App?</label
+      >
+      <div class="tab-content">
+        <ul>
+          <li>
+            Are you using one of the
+            <a href="https://lingvo.tv/#supported-services"
+              >supported services</a
+            >
+            to play the movie?
+          </li>
+          <li>
+            Are you playing the movie in Chrome Browser on your desktop computer
+            or laptop?
+          </li>
+          <li>
+            Are the subtitles turned on? Do you see them changing in the movie?
+          </li>
+          <li>
+            Have you installed the Chrome Extension in the same browser where
+            you opened the movie?
+          </li>
+          <li>
+            Have you opened the movie after you installed the extension? If not,
+            please reload the window with the movie.
+          </li>
+          <li>Have you entered email in the Chrome Extension?</li>
+          <li>
+            Have you used the same email to signup/login into LingvoTV Web App
+            on your phone?
+          </li>
+          <li>Have you checked the internet connection on both devices?</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tab">
+      <input type="radio" id="rd2" name="rd" />
+      <label class="tab-label" for="rd2"
+        >What is LingvoTV Chrome Extension?</label
+      >
+      <div class="tab-content">
+        LingvoTV Chrome Extension is a small program you can only install on a
+        Chrome Browser on a desktop computer. It will grab subtitles appearing
+        on the screen as you watch the movie and send them to LingvoTV Web App.
+        <br /><br />
+        It is required to install it because otherwise, LingvoTV Web App won't
+        receive subtitles.
+        <br /><br />
+        Open <a href="https://lingvo.tv">LingvoTV site</a> on a desktop Chrome
+        Browser, click on the "Chrome Extension" button, and it will take you to
+        the official Chrome Web Store, then click on "Add to Chrome" to install.
+      </div>
+    </div>
+    <div class="tab">
+      <input type="radio" id="rd3" name="rd" />
+      <label class="tab-label" for="rd3"
+        >What is a LingvoTV Web App, and where do I find it?</label
+      >
+      <div class="tab-content">
+        LingvoTV Web App is a site located under
+        <a href="https://app.lingvo.tv">app.lingvo.tv</a>, where you translate
+        the words while watching the movie. We built it for mobile devices, but
+        you can open it in any browser on any device like a tablet or even on
+        the same desktop computer where you watch the movie. It is essential,
+        though, that it is convenient for you to see both the movie and the Web
+        App at the same time. <br /><br />
+        The idea is that you can watch the movie and translate unknown words
+        quickly without interruption.
+      </div>
+    </div>
+    <div class="tab">
+      <input type="radio" id="rd4" name="rd" />
+      <label class="tab-label" for="rd4"
+        >Why can't I find the App in the App Store or Play Store?</label
+      >
+      <div class="tab-content">
+        LingvoTV Web App doesn't need installation. It is instantly available on
+        any device if you go to
+        <a href="https://app.lingvo.tv">app.lingvo.tv</a> in any browser or
+        click on "Web App" on the <a href="https://lingvo.tv">site</a>.
+      </div>
+    </div>
+    <div class="tab">
+      <input type="radio" id="rd5" name="rd" />
+      <label class="tab-label" for="rd5"
+        >Why do I need both the Chrome Extension and the Web App?</label
+      >
+      <div class="tab-content">
+        Chrome Extensions reads the subtitles from the movie and sends them to
+        the Web App, where you can see and translate them.
+      </div>
+    </div>
+    <div class="tab">
+      <input type="radio" id="rd6" name="rd" />
+      <label class="tab-label" for="rd6"
+        >Why does the Extension work in Chrome only?</label
+      >
+      <div class="tab-content">
+        Right now, we built only a Chrome Extension, but in the future, we can
+        offer an extension for other browsers and devices as well. <br /><br />
+        It is essential to understand that LingvoTV Web App works in any browser
+        on any device. Only LingvoTV Extension requires Desktop Chrome, so
+        that's where you have to watch the movie at the moment.
+      </div>
+    </div>
+    <div class="tab">
+      <input type="radio" id="rd7" name="rd" />
+      <label class="tab-label" for="rd7"
+        >What languages can be translated?</label
+      >
+      <div class="tab-content">
+        LingvoTV uses
+        <a
+          href="https://translate.google.com/intl/en/about/languages/"
+          target="_blank"
+          >Google Translate</a
+        >
+        as a translation service, so LingvoTV will translate the same languages
+        Google Translate does.
+      </div>
+    </div>
+    <div class="tab">
+      <input type="radio" id="rd8" name="rd" />
+      <label class="tab-label" for="rd8"
+        >What subtitles languages can I choose?</label
+      >
+      <div class="tab-content">
+        LingvoTV does not provide subtitles, as it only sends them from the
+        movie to the Web App.
+        <br /><br />
+        Subtitles languages provided by services like Netflix depend on your
+        location and the movie itself.
+      </div>
+    </div>
+    <div class="tab">
+      <input type="radio" id="rd9" name="rd" />
+      <label class="tab-label" for="rd9">Can I request a feature?</label>
+      <div class="tab-content">
+        If you wish LingvoTV had a feature, it currently doesn't - don't
+        hesitate to
+        <a href="mailto:hi@lingvo.tv?subject=Feature Request">contact us</a> and
+        describe your use case.
+      </div>
+    </div>
+  </div>
+</div>

@@ -320,6 +320,17 @@
     }, 3000);
   }
 
+  function Faq() {
+    var section = $('[data-key="faq"]')[0];
+    fetch("/faq.html?" + Date.now())
+      .then(function (res) {
+        return res.text();
+      })
+      .then(function (html) {
+        section.innerHTML = html;
+      });
+  }
+
   function Pricing() {
     var prices;
     var apiUrl = baseApiUrl + "/stripe/prices";
@@ -384,6 +395,7 @@
     LazyImages();
     ActionsMenu();
     // Slideshow()
+    Faq();
     Pricing();
   });
 
