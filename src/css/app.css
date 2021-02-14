@@ -559,6 +559,14 @@ body > section:nth-child(odd) {
   margin-right: 0.4em;
   color: #1ba2f9;
 }
+.pricing article li.downside {
+  color: #ba090d;
+}
+.pricing article li.downside::before {
+  content: "✗";
+  margin-right: 0.4em;
+  color: #ba090d;
+}
 .pricing .upgrade {
 }
 
